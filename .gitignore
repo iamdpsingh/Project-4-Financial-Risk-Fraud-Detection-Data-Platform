@@ -1,0 +1,136 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ─── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints
+*.ipynb
+
+# ─── Testing & Coverage ───────────────────────────────────────────────────────
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# ─── Type checkers ────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ─── Linters ──────────────────────────────────────────────────────────────────
+.ruff_cache/
+
+# ─── Great Expectations ───────────────────────────────────────────────────────
+uncommitted/
+great_expectations/.ge_store_backend_id
+
+# ─── Terraform ────────────────────────────────────────────────────────────────
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+.terraform.lock.hcl
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+*.tar
+
+# ─── Google Cloud / GCP ───────────────────────────────────────────────────────
+*.json
+!pyproject.toml
+!package.json
+!data/schemas/*.json
+service-account-key*.json
+application_default_credentials.json
+gcloud/
+.gcloud/
+
+# ─── Data files (generated, not samples) ─────────────────────────────────────
+data/raw/**/*.csv
+data/raw/**/*.parquet
+data/raw/**/*.avro
+data/processed/
+!data/sample/
+!data/schemas/
+
+# ─── Airflow / Astronomer ─────────────────────────────────────────────────────
+airflow/logs/
+airflow/plugins/
+.astro/
+airflow.db
+airflow-webserver.pid
+
+# ─── Secrets / credentials ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ─── IDEs / editors ───────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── Beam / Dataflow ──────────────────────────────────────────────────────────
+beam-temp/
+dataflow-staging/
