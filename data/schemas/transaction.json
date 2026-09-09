@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Transaction",
+  "description": "A financial transaction on the platform.",
+  "type": "object",
+  "required": [
+    "transaction_id", "customer_id", "account_id",
+    "transaction_timestamp", "amount", "currency",
+    "transaction_type", "country", "payment_method", "status", "is_international"
+  ],
+  "properties": {
+    "transaction_id":        { "type": "string", "format": "uuid" },
+    "customer_id":           { "type": "string", "format": "uuid" },
+    "account_id":            { "type": "string", "format": "uuid" },
+    "merchant_id":           { "type": ["string", "null"], "format": "uuid" },
+    "device_id":             { "type": ["string", "null"], "format": "uuid" },
+    "transaction_timestamp": { "type": "string", "format": "date-time" },
+    "amount":                { "type": "number", "exclusiveMinimum": 0 },
+    "currency":              { "type": "string", "enum": ["USD","EUR","GBP","INR","JPY","CAD","AUD","SGD","CHF","CNY","HKD","BRL","MXN","AED","SAR"] },
+    "amount_usd":            { "type": ["number", "null"], "exclusiveMinimum": 0 },
+    "transaction_type":      { "type": "string", "enum": ["purchase","withdrawal","transfer","refund","payment","deposit"] },
+    "country":               { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "city":                  { "type": ["string", "null"], "maxLength": 100 },
+    "payment_method":        { "type": "string", "enum": ["card","bank_transfer","wallet","upi","crypto","cheque"] },
+    "status":                { "type": "string", "enum": ["pending","completed","failed","reversed","flagged"] },
+    "ip_address":            { "type": ["string", "null"] },
+    "is_international":      { "type": "string", "enum": ["true", "false"] }
+  },
+  "additionalProperties": false
+}

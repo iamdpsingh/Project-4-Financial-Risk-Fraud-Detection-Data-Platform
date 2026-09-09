@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Device",
+  "type": "object",
+  "required": ["device_id", "customer_id", "device_type", "first_seen_at", "last_seen_at"],
+  "properties": {
+    "device_id":      { "type": "string", "format": "uuid" },
+    "customer_id":    { "type": "string", "format": "uuid" },
+    "device_type":    { "type": "string", "enum": ["mobile","desktop","tablet","atm","pos_terminal"] },
+    "os":             { "type": ["string", "null"], "maxLength": 50 },
+    "browser":        { "type": ["string", "null"], "maxLength": 100 },
+    "ip_address":     { "type": ["string", "null"] },
+    "user_agent":     { "type": ["string", "null"] },
+    "first_seen_at":  { "type": "string", "format": "date-time" },
+    "last_seen_at":   { "type": "string", "format": "date-time" },
+    "created_at":     { "type": "string", "format": "date-time" }
+  }
+}

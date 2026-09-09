@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TransactionEvent",
+  "type": "object",
+  "required": ["event_id", "transaction_id", "event_type", "event_timestamp"],
+  "properties": {
+    "event_id":         { "type": "string", "format": "uuid" },
+    "transaction_id":   { "type": "string", "format": "uuid" },
+    "event_type":       { "type": "string", "enum": ["transaction_created","payment_attempted","payment_failed","payment_completed","transaction_reversed","fraud_flagged","review_initiated","review_completed"] },
+    "event_timestamp":  { "type": "string", "format": "date-time" },
+    "event_metadata":   { "type": ["string", "null"] },
+    "created_at":       { "type": "string", "format": "date-time" }
+  }
+}

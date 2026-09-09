@@ -1,0 +1,101 @@
+customer_id,name,email,phone,country,city,customer_segment,date_of_birth,created_at,updated_at
+bc8960a9-23b8-41e9-b924-56de3eb13b90,Allison Hill,donaldgarcia@example.net,+1-219-560-0133,CA,Robinsonshire,retail,1959-10-11,2020-02-21T00:00:00+00:00,2023-03-23T00:00:00+00:00
+3b8faa18-37f8-488b-97fc-695a07a0ca6e,Sean Blake,helenpeterson@example.org,651.216.1559,US,Herrerafurt,retail,2006-04-28,2022-05-14T00:00:00+00:00,2022-07-18T00:00:00+00:00
+47378190-96da-4dac-b2ff-5d2a386ecbe0,Edward Fuller,barbara10@example.net,441.731.6475,DE,Jasonview,business,2008-02-14,2023-08-23T00:00:00+00:00,2025-12-29T00:00:00+00:00
+371ecd7b-27cd-4130-8722-9389571aa876,Melinda Jones,amandasanchez@example.com,(748)535-0305x6413,AU,Fostermouth,student,1978-07-04,2020-11-22T00:00:00+00:00,2025-08-19T00:00:00+00:00
+9a8dca03-580d-4b71-98f5-64135be6128e,Charles Mcgee,julie69@example.com,(332)887-1012x269,US,Carlsonmouth,retail,2004-10-21,2022-02-17T00:00:00+00:00,2022-09-03T00:00:00+00:00
+142c3fe8-60e7-4113-ac1b-8ca1f91e1d4c,Tricia Valencia,frazierdanny@example.net,001-645-514-6270x48281,AU,West Kathryn,premium,1952-04-21,2023-01-03T00:00:00+00:00,2023-09-15T00:00:00+00:00
+0bbb2599-11ce-4dd2-b45e-d1f03139d32c,Paula Moreno,georgetracy@example.org,(443)903-9117x182,DE,West Allison,premium,1982-09-28,2022-01-10T00:00:00+00:00,2025-04-06T00:00:00+00:00
+7412b293-4729-4739-a14f-f3d719db3ad0,Tracey Hickman,jenniferross@example.net,+1-557-587-1331x5098,ZA,North Jeanton,premium,1975-12-22,2021-04-21T00:00:00+00:00,2026-02-28T00:00:00+00:00
+efc89849-b3aa-4efe-8458-a885ab9099a4,Taylor Heath,palmerjoshua@example.com,582.399.7376,US,Lake Ryanchester,premium,2002-04-19,2021-12-28T00:00:00+00:00,2023-03-02T00:00:00+00:00
+451b4cf3-6123-4df7-b656-af7229d4beef,Scott Brown,brownjessica@example.org,933.587.2624,DE,South Lindseyside,student,1958-09-26,2020-12-16T00:00:00+00:00,2023-09-14T00:00:00+00:00
+3aa2e4f9-0e51-430d-86a7-ee39c4b032cc,Matthew Fernandez,novaksara@example.org,(267)873-6026,US,Saramouth,business,1980-05-27,2021-10-26T00:00:00+00:00,2026-07-18T00:00:00+00:00
+e059a0ee-9132-463e-b162-87e4e9c349e0,Michael Cross,smoore@example.org,4982050097,IN,Port Jacobland,premium,1989-08-17,2020-05-15T00:00:00+00:00,2022-09-26T00:00:00+00:00
+23bed01d-43cf-4fde-a493-3b83757750a9,Cynthia Wilson,bethwilliams@example.org,(799)385-4353x46247,CA,South Christineshire,retail,1958-05-05,2022-03-21T00:00:00+00:00,2025-10-27T00:00:00+00:00
+5cabcc97-663f-4c97-9562-69f0e5d7b875,Angel Lewis MD,nicole35@example.com,(378)449-8084,GB,Darrellville,retail,1996-04-17,2023-04-12T00:00:00+00:00,2025-09-05T00:00:00+00:00
+a0a04dc4-2720-4bdf-9c11-f735dc713d96,Brittney Campbell,jenniferharris@example.net,687-440-1640x052,GB,Arnoldchester,retail,1970-10-30,2020-07-05T00:00:00+00:00,2021-01-13T00:00:00+00:00
+877409a9-77d2-4e02-bf01-cf99988c24c9,Ashley Landry,amydavenport@example.net,+1-526-520-4505,DE,West Kimberlychester,retail,1959-01-26,2022-02-27T00:00:00+00:00,2024-04-18T00:00:00+00:00
+c0398710-8976-4334-a281-7efdae849217,Nicole Frost,michellecherry@example.org,(902)756-3421x60733,BR,Loribury,retail,1978-03-09,2020-01-24T00:00:00+00:00,2021-05-07T00:00:00+00:00
+b8db0672-f42d-47cc-80d4-af5974273ca3,Matthew Ross,michelle45@example.net,768.750.1429x40196,US,Obrienhaven,business,1985-01-27,2022-06-09T00:00:00+00:00,2023-04-28T00:00:00+00:00
+d777a477-4c66-40a8-a013-ac6ededa4e16,Steven Lee,fletcheraaron@example.net,+1-835-661-5951x48465,NG,East Robert,premium,1954-01-26,2020-12-31T00:00:00+00:00,2022-03-11T00:00:00+00:00
+c754108f-f418-4f3f-8a14-be62295b4715,Megan Orr,richard04@example.com,969.495.7773,US,West Zacharymouth,vip,2008-08-26,2022-02-04T00:00:00+00:00,2026-05-15T00:00:00+00:00
+e0f3eab0-5cec-4eb5-add9-68311ca35cfb,Trevor Young,jeffrey32@example.org,8379917693,DE,Sancheztown,student,1981-02-11,2022-09-27T00:00:00+00:00,2022-11-05T00:00:00+00:00
+15ed6269-1429-4c07-b26b-4776913e4de2,Shannon Mcclure,zrobinson@example.net,870.983.1727x88957,US,Lake Michelle,premium,2002-06-30,2021-05-08T00:00:00+00:00,2026-04-10T00:00:00+00:00
+f264accc-79ac-4b1e-a8e5-6e0c20de435d,Paul Larsen,katie87@example.net,347.414.3455,NG,East Patrick,retail,1984-12-03,2022-12-26T00:00:00+00:00,2023-09-09T00:00:00+00:00
+8a0f4efb-edcd-465e-b638-6821f6e07cc0,Daniel Perry,amy60@example.org,(569)909-6705x46688,GB,West Ryan,business,1990-08-28,2023-05-27T00:00:00+00:00,2025-10-09T00:00:00+00:00
+e64d1bcb-7027-43a1-9f98-7c71a65e688e,George Shelton,dramsey@example.org,+1-280-669-9016x272,AU,Murphymouth,retail,1997-11-05,2022-03-28T00:00:00+00:00,2026-01-01T00:00:00+00:00
+3ae8cc93-8dcd-4d03-969b-666205628059,Philip Gray,fking@example.com,5802531003,US,East David,premium,2008-01-22,2020-05-11T00:00:00+00:00,2024-02-24T00:00:00+00:00
+080aadfb-e7c9-4b26-9141-25c63a9bedd4,Kristy Robinson,katie29@example.net,001-512-341-9049x6631,US,Melissaville,business,2002-05-07,2023-07-16T00:00:00+00:00,2023-11-13T00:00:00+00:00
+21df306f-8a0b-4c33-b6d8-393a7c441fe7,Kylie Williams,estanley@example.net,+1-650-967-1657x2628,GB,Grahamshire,premium,1957-06-22,2021-07-24T00:00:00+00:00,2025-04-24T00:00:00+00:00
+30beb45f-6835-44f2-8eb8-1f9d7914c120,Samuel Rivas,ramirezshannon@example.com,001-596-750-7527,DE,Matthewview,retail,1970-01-12,2021-05-12T00:00:00+00:00,2025-10-04T00:00:00+00:00
+ac619e63-0dde-49a6-baa4-b71add2467ac,Kellie Lee,jenniferfreeman@example.org,001-777-970-1436x349,IN,Ronaldside,premium,1999-11-16,2022-04-21T00:00:00+00:00,2024-12-02T00:00:00+00:00
+310c0c00-3fa7-4104-9bf9-0e27dc96925e,Michael Nelson,jerry35@example.org,001-682-533-7498x9413,US,Harrytown,retail,1968-06-15,2021-11-25T00:00:00+00:00,2026-05-22T00:00:00+00:00
+ec5b227c-dfde-4fbf-bff3-50bf766ecb15,Beth Williams,tranheidi@example.org,+1-971-309-4777x5204,US,South Travisshire,retail,1959-05-01,2021-01-10T00:00:00+00:00,2024-02-24T00:00:00+00:00
+17e011b7-f810-4383-83c7-2ba8d605e770,Amy Hernandez,christopher31@example.net,001-269-399-3867x74964,US,Lake Jason,vip,1987-07-01,2023-08-28T00:00:00+00:00,2026-09-08T00:00:00+00:00
+e7067ef4-66aa-4385-9d59-ba7136b82481,Brooke Thompson,moorericky@example.net,+1-574-803-4471x349,US,New Jeffreyberg,retail,1974-09-14,2022-09-21T00:00:00+00:00,2025-06-02T00:00:00+00:00
+747b6dba-c8fe-4ccd-88b8-d9c6ed3049cf,Samantha Jones,lauralarson@example.net,271-874-6488x7719,US,Cassandratown,retail,1958-11-04,2022-03-10T00:00:00+00:00,2023-09-04T00:00:00+00:00
+f7fd5646-37bb-4eec-8bf5-0b52309d258c,Vernon Huff,keyemily@example.com,001-802-978-7429,CA,South Michaelmouth,retail,1960-01-23,2022-09-23T00:00:00+00:00,2023-08-06T00:00:00+00:00
+80bacd64-7a0e-4fea-958c-a9ba0cd620c2,Brian Martin,ssteele@example.net,(980)871-5451x6808,US,East Aprilfort,vip,1961-01-20,2021-10-04T00:00:00+00:00,2022-01-29T00:00:00+00:00
+98543881-118a-4d29-af92-3996d9f195d0,Olivia Harris,sarakim@example.net,310.993.2480x8613,US,Lake Marilynfort,retail,1987-08-08,2022-11-06T00:00:00+00:00,2023-04-19T00:00:00+00:00
+9e8fc965-0a2c-427e-9832-685694340a03,Dorothy Thornton,edavenport@example.org,682.263.9821x465,IN,Jessicashire,retail,1956-05-04,2023-03-12T00:00:00+00:00,2024-07-28T00:00:00+00:00
+506e5a9a-b758-488d-ab73-295b344a54b8,Mary Grimes,wryan@example.com,+1-586-875-3396,DE,West Juliefurt,retail,1973-03-12,2021-10-09T00:00:00+00:00,2023-03-27T00:00:00+00:00
+c07a30f2-edd4-453b-90f0-fd0a750cab75,Matthew Hoover,tylerjohnson@example.net,001-851-471-8702,US,South Kimberlyview,vip,2007-11-13,2023-08-14T00:00:00+00:00,2025-04-19T00:00:00+00:00
+8181a8cc-3691-47eb-89a2-688b12c136e0,Michael Santos,melissa86@example.com,+1-978-409-1343x1611,GB,Rebeccaton,retail,1977-05-23,2023-02-27T00:00:00+00:00,2023-09-19T00:00:00+00:00
+d5704f32-702c-4d20-a862-18b848f4ef12,Anthony Howard,hthomas@example.com,001-922-421-9693,BR,South Dana,retail,1981-07-25,2021-05-15T00:00:00+00:00,2023-06-10T00:00:00+00:00
+8dfa6a56-d12d-4c9a-aaf9-15310200b1f0,Michael Nolan,rsantana@example.net,(617)559-4647,DE,Castanedaville,retail,1999-05-30,2023-09-01T00:00:00+00:00,2026-08-19T00:00:00+00:00
+be0f051b-1b66-45a9-a3c4-36571d8cbbac,Kenneth Andrews,andrew64@example.org,001-509-674-3953,JP,Lake Colton,premium,1984-04-08,2020-10-02T00:00:00+00:00,2023-09-20T00:00:00+00:00
+a25d6b29-afff-4fd2-b41e-f40b57c700aa,Amanda Kramer,rileyjessica@example.org,956-623-2858x8424,IN,Lindamouth,business,1963-05-12,2021-03-07T00:00:00+00:00,2025-03-15T00:00:00+00:00
+46d483f3-d450-481c-ac6f-7633a2607723,Brenda Levy,zcoffey@example.net,(716)304-8175x496,GB,South Angel,retail,1978-10-12,2020-04-14T00:00:00+00:00,2021-04-27T00:00:00+00:00
+8d3aed99-711c-41c9-bdc1-4f1f295d6fbf,Kristina Herman,deborahreid@example.com,001-446-812-0047x113,SG,Watsonside,premium,1958-05-20,2023-07-28T00:00:00+00:00,2025-01-14T00:00:00+00:00
+5e84f058-d5a8-44eb-8939-23de8babce3b,Patrick Moore,fpena@example.net,(840)653-7735x15850,US,North Stacy,premium,1995-06-02,2020-06-03T00:00:00+00:00,2022-02-03T00:00:00+00:00
+cbceabde-eede-4b07-a623-a6895d59cd2a,Anna Lewis,williamsmatthew@example.org,001-431-283-9335,IN,Micheleberg,student,2005-02-14,2020-03-26T00:00:00+00:00,2023-09-09T00:00:00+00:00
+5a8aaeca-1a50-4ec3-aabc-25fa3fe12e47,Ms. Rebecca Rodriguez,andersonmichael@example.org,001-350-324-0268,FR,Weststad,business,1972-03-30,2021-03-06T00:00:00+00:00,2024-12-31T00:00:00+00:00
+ccc56569-f9e8-4369-a999-b735dd56cc94,Ashley Gordon,acostaregina@example.net,447.300.7661x77115,NG,West Claudia,business,1971-09-18,2020-11-12T00:00:00+00:00,2023-07-09T00:00:00+00:00
+ab7f089a-cd5f-4822-a966-08aaee49f329,Michelle James,shawn96@example.org,001-318-736-7365x766,US,Edwardsview,business,1986-06-10,2021-11-11T00:00:00+00:00,2026-04-01T00:00:00+00:00
+dbccc477-09e9-4b0a-9f46-529061ee411a,Christian Leblanc,davischristopher@example.com,352-880-9885,IN,Morganchester,retail,1990-10-19,2023-12-07T00:00:00+00:00,2024-03-26T00:00:00+00:00
+df0f06cb-cb9b-4326-920e-ac174e20fd1a,Michelle Schmitt,michael98@example.org,(573)815-8514,AE,New Sarahview,retail,2006-07-31,2022-07-31T00:00:00+00:00,2024-07-16T00:00:00+00:00
+f7860b50-11c5-4ef0-9d46-3c09475287aa,Donald Farmer,michael22@example.net,+1-661-720-1836x67525,CA,North Ericton,business,1977-03-14,2022-03-27T00:00:00+00:00,2024-01-28T00:00:00+00:00
+54c63cd8-8945-4f27-97fa-2d8dfb2ca025,Denise Stanley,alawson@example.com,681.256.1497,CA,South Tracey,vip,1998-05-10,2022-03-29T00:00:00+00:00,2026-01-18T00:00:00+00:00
+43f59a85-fbc9-487a-b668-a61794a1875d,Dan Dougherty,kathrynroberts@example.org,7763226838,BR,Hensleyton,retail,1955-03-08,2021-06-18T00:00:00+00:00,2022-06-18T00:00:00+00:00
+1d9af659-82ec-4f2d-bbf6-e16f9b3080d5,Joe Miller,barbara96@example.net,+1-364-516-0529x7516,IN,Chapmanhaven,retail,1956-12-22,2021-10-04T00:00:00+00:00,2024-03-15T00:00:00+00:00
+ce777f00-ecf2-4e76-8519-7ff4006ed6e3,Seth Reese,masonjackson@example.net,+1-418-483-5523x1243,US,East Stephaniefort,retail,1991-01-10,2020-03-31T00:00:00+00:00,2025-02-19T00:00:00+00:00
+d9178793-a9d3-42e6-905c-c6869f871ce7,Justin Riley,michelle52@example.com,377-644-9058,IN,Hayeston,retail,1981-10-05,2020-05-23T00:00:00+00:00,2024-02-04T00:00:00+00:00
+4bb00f20-b27c-4026-a703-b6365380b904,Dustin Newman,gilbertwilliam@example.com,001-480-279-3597,GB,Garciamouth,premium,1991-06-29,2023-09-27T00:00:00+00:00,2026-01-10T00:00:00+00:00
+9d9262af-2c8d-4e44-a71e-43a6bf85bf0e,Mrs. Maria Williams,hritter@example.net,+1-725-354-6659x051,IN,Mitchellberg,premium,1972-04-09,2022-02-15T00:00:00+00:00,2025-12-03T00:00:00+00:00
+c9277d9b-6e0d-4648-b5ce-884149732d6c,Kevin Thomas,kyle62@example.net,001-214-786-5281x685,GB,Henryborough,premium,1979-10-17,2020-01-01T00:00:00+00:00,2023-05-29T00:00:00+00:00
+cb323e35-7922-4ac2-82dc-4c8e36b5229a,Ralph Lee,ericphillips@example.org,988.205.9296x22292,GB,Diazbury,vip,1993-06-24,2022-06-24T00:00:00+00:00,2026-04-07T00:00:00+00:00
+55cee5db-9e87-404c-a208-6977a9f25336,Lisa Goodwin,pyoung@example.com,435.697.7468x8623,CA,Lake Timothystad,retail,1987-08-19,2021-08-04T00:00:00+00:00,2024-06-24T00:00:00+00:00
+0bd4a990-0640-4e0f-a5b8-fd4b32fa2de8,Ashley Singleton,mitchellkathryn@example.com,782.561.3750x606,CA,Vangstad,retail,1966-01-28,2021-04-05T00:00:00+00:00,2025-10-12T00:00:00+00:00
+935f2b0a-a138-4ddc-a2d9-de5d6a18ce4c,Fernando Garcia,lacey20@example.com,827.379.0104x3289,DE,Johnville,retail,1974-04-03,2020-05-29T00:00:00+00:00,2025-07-07T00:00:00+00:00
+e4855aa1-016b-4287-b008-05cca7f36ae9,Jason Bauer,fbrown@example.net,+1-708-593-2460,GB,Lopezland,business,1999-02-21,2021-05-14T00:00:00+00:00,2022-03-12T00:00:00+00:00
+8498e113-b227-462c-b53d-4330cdda24ba,Heather Ashley,myerstheodore@example.net,(754)705-1531x9520,SG,Port Kimberly,retail,1958-09-11,2021-03-24T00:00:00+00:00,2022-03-19T00:00:00+00:00
+aae65fc1-76f2-4bfe-8d29-a36f222282e1,Michael Welch,bryanparsons@example.com,8439030548,US,Benjaminborough,retail,1958-07-24,2020-09-05T00:00:00+00:00,2025-10-18T00:00:00+00:00
+81392443-e45b-412e-b822-5688d0a44432,Scott Williams,joshua56@example.com,001-876-452-7758x4161,DE,Manuelland,retail,1959-07-21,2022-06-25T00:00:00+00:00,2025-11-30T00:00:00+00:00
+3f4b1a70-c074-418e-825a-609f7337c599,Edward Griffin,cjackson@example.com,205.496.4016x582,IN,Johnsonland,business,1983-10-29,2020-11-21T00:00:00+00:00,2026-03-19T00:00:00+00:00
+709b7d97-464c-44af-bd3f-3799a07295e9,Matthew Cox,jacobserika@example.com,(271)492-8565x431,SG,Holmesside,retail,1983-01-26,2022-12-03T00:00:00+00:00,2025-08-21T00:00:00+00:00
+236c7b87-14a0-4ccb-8a47-6a87e49d681d,Reginald Padilla,wendymitchell@example.com,712.317.2715,US,Patriciaburgh,retail,1974-05-04,2021-11-18T00:00:00+00:00,2023-09-03T00:00:00+00:00
+54b4a482-6858-4eba-aa34-c85410714d51,Tammy Little,william13@example.org,470.358.9578,CA,West Raymondfort,retail,1971-05-27,2023-12-17T00:00:00+00:00,2024-07-23T00:00:00+00:00
+f2311f17-9586-4a76-8511-55ffe7a37e81,Patricia Morrow,martinezlogan@example.org,378.452.8922x680,US,Fredmouth,premium,1957-01-20,2022-05-10T00:00:00+00:00,2024-07-15T00:00:00+00:00
+da7b9095-63d6-4a39-80e3-befd4c71e0fe,Courtney Meza,meghan43@example.net,+1-442-449-8182,IN,Meganshire,business,1971-02-10,2020-01-13T00:00:00+00:00,2023-12-23T00:00:00+00:00
+382c043f-7cfc-4b79-b875-394ce5d6f6e6,Scott Miller,debra96@example.net,+1-407-984-4736x4710,GB,Washingtonborough,retail,1965-02-18,2023-01-23T00:00:00+00:00,2026-06-11T00:00:00+00:00
+b963f37f-6781-4c1f-8c53-0e36addc3e13,Charles Hensley,jessica56@example.org,001-258-681-5371x47321,US,Linchester,retail,1966-10-09,2021-11-19T00:00:00+00:00,2025-08-19T00:00:00+00:00
+978648f8-64de-42e6-a82c-7d7b06e745f9,Sean Moore,sarah53@example.org,787.274.7016x8733,FR,West Troyfort,premium,2006-04-09,2023-06-28T00:00:00+00:00,2026-06-25T00:00:00+00:00
+0cdf742b-2e85-4b21-b631-de9ddde9f863,Adam Rodriguez,nicoleluna@example.com,(906)609-8358x416,US,East Theresafurt,retail,1979-05-03,2022-05-27T00:00:00+00:00,2023-02-28T00:00:00+00:00
+473bd358-610e-4a64-a130-1617c2dff335,William Grant,kari39@example.net,(480)700-2578x7298,US,Franciscoport,business,1970-11-19,2021-10-31T00:00:00+00:00,2023-09-22T00:00:00+00:00
+0d557b61-8a17-4dfe-bfc0-0dc804f64d86,Katie Hicks,terickson@example.com,9556169409,IN,Lake Brett,student,1977-04-22,2020-06-16T00:00:00+00:00,2025-09-24T00:00:00+00:00
+3f4df561-f319-4125-87f1-94f9c1156d6d,Mr. Nathan Hampton,rhernandez@example.org,8915307562,US,Shawfort,retail,2006-11-16,2020-05-20T00:00:00+00:00,2020-10-31T00:00:00+00:00
+90604f62-1d48-4071-ab61-a7b1793b4c32,Nancy Brown,aprilhoffman@example.net,586.552.7858x5497,DE,Angelabury,vip,1966-12-25,2021-05-03T00:00:00+00:00,2022-01-16T00:00:00+00:00
+bf780e3f-f6b7-41f7-9b74-92459b1bc895,Vickie Wise,hannahburns@example.com,(284)641-9866x524,CA,West Sandraview,premium,1994-01-04,2022-01-25T00:00:00+00:00,2023-01-03T00:00:00+00:00
+ad66a1bd-9367-4a02-8fdc-6e1bedcb8cb6,Cindy Clayton,sarah42@example.org,+1-993-330-8330x165,NG,North Tamara,vip,1975-01-12,2020-08-09T00:00:00+00:00,2020-11-22T00:00:00+00:00
+a092f52a-d4a0-47a7-b0cc-1b3b9793b9b4,Brooke Delgado,mwoods@example.com,440-619-3802x62067,IN,North Kennethville,retail,1981-08-24,2021-02-10T00:00:00+00:00,2021-07-15T00:00:00+00:00
+c85aca46-90e0-44a0-bbdd-3933cbd58bf6,Frances Gibson,ismall@example.net,543.415.2742x054,BR,Wilcoxhaven,retail,1960-11-28,2023-05-14T00:00:00+00:00,2024-01-16T00:00:00+00:00
+033d2bce-575a-4d2c-a5c5-650c8186a576,James Davis,thomasboyle@example.org,563-274-5499x045,IN,South Kurtfurt,business,1964-09-22,2022-01-28T00:00:00+00:00,2022-06-18T00:00:00+00:00
+b5122df8-75b1-4a55-9426-2982e43e4288,Tammy Barron,hannah45@example.net,932.572.7956,US,Lake Karen,retail,1992-11-25,2022-01-11T00:00:00+00:00,2025-08-04T00:00:00+00:00
+89c5b31a-eb6c-4016-8ee6-24d09dac6e83,Angela Griffin,christian91@example.org,+1-983-398-2258,AU,Lake Brandy,business,1966-12-31,2023-08-25T00:00:00+00:00,2025-02-28T00:00:00+00:00
+d4aac9a3-3ed8-456c-9a09-dfa052828d80,Jordan Stokes,aanderson@example.com,001-508-374-0640,IN,South Melvinland,vip,1983-09-06,2023-04-28T00:00:00+00:00,2024-10-28T00:00:00+00:00
+ab0e664e-9c3e-42d5-91e1-aa9676f72255,Amy Shannon,ajohnson@example.org,001-826-456-7661x82512,BR,Port Adam,retail,2006-02-16,2021-05-14T00:00:00+00:00,2025-07-28T00:00:00+00:00
+cc3ebdde-5ad5-4f06-b64d-7c877cd0129d,Edwin Nunez,opatel@example.org,352.343.1069x033,GB,South Carlaton,retail,1983-08-13,2021-10-27T00:00:00+00:00,2022-11-03T00:00:00+00:00
+8441aefd-0299-436a-8e48-522346b98991,Andrew Gonzales,karenparsons@example.org,643.695.9953x42836,BR,New Stacyburgh,vip,2001-01-08,2023-12-07T00:00:00+00:00,2026-05-26T00:00:00+00:00
+b0cbc61f-3d85-4e89-8217-14298e200724,Jessica Simpson,shelly68@example.com,001-466-924-6287x334,US,New Robertchester,retail,1964-09-01,2022-04-12T00:00:00+00:00,2025-01-06T00:00:00+00:00
+b118f68d-6786-4506-b8ba-8abc4b5305e5,Brandi Sanchez,markmiller@example.com,(518)930-4699x013,IN,Port Rebecca,retail,1956-07-12,2020-02-05T00:00:00+00:00,2021-02-20T00:00:00+00:00
+bef59fe6-ff23-4d5f-aced-d15d58007c02,Terry Lewis,suzannewilson@example.com,993.763.8546,IN,Josehaven,premium,1977-02-20,2023-02-07T00:00:00+00:00,2026-01-29T00:00:00+00:00

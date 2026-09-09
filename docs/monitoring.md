@@ -1,7 +1,7 @@
 # Monitoring — Financial Risk & Fraud Detection Platform
 
 > This document covers infrastructure monitoring, data pipeline health monitoring, alerting policies, and SLA definitions.
-> Full implementation is in Phase 10. This file is the design specification.
+> This file is the design specification. Configs and code will be added as monitoring is wired up.
 
 ---
 
@@ -130,7 +130,7 @@ httpRequest.status>=500
 
 ## 8. Runbooks
 
-*(To be completed in Phase 10)*
+*(Will be added once Dataflow and Pub/Sub are wired up on GCP)*
 
 - `runbooks/dataflow-job-failure.md`
 - `runbooks/pubsub-backlog-spike.md`

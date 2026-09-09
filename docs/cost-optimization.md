@@ -1,7 +1,7 @@
 # Cost Optimization — Financial Risk & Fraud Detection Platform
 
 > This document tracks BigQuery optimization experiments, cost analysis, and cost reduction strategies implemented across the platform.
-> Experiments are added as each optimization is implemented (Phase 11).
+> Experiments and benchmarks are added as each optimization is implemented. Numbers will be filled in once the GCP environment is up and running.
 
 ---
 
@@ -20,7 +20,7 @@ After partitioning + clustering: typical query scans <1% of data → **~$0.01 pe
 
 ## 2. Experiment 1 — Partitioning vs. No Partitioning
 
-*(To be completed in Phase 11)*
+*(Results will be filled in once the GCP environment is running)*
 
 ### Setup
 Same query run against:
@@ -50,7 +50,7 @@ WHERE transaction_date = '2024-06-15'
 
 ## 3. Experiment 2 — Incremental vs. Full Reload
 
-*(To be completed in Phase 5)*
+*(Results will be filled in once incremental loading is implemented)*
 
 ### Problem
 Naive approach: DELETE + full INSERT every day = scans entire table.
@@ -96,7 +96,7 @@ Optimized approach: MERGE on `transaction_id` using only new records.
 
 ---
 
-## 5. Monthly Cost Estimate (Phase 4+ GCP)
+## 5. Monthly Cost Estimate (GCP)
 
 | Service | Usage (estimated) | Monthly Cost |
 |---|---|---|

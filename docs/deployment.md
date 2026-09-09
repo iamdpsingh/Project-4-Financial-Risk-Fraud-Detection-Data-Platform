@@ -9,7 +9,7 @@
 ### Required tools
 | Tool | Version | Install |
 |---|---|---|
-| Python | 3.11+ | `pyenv install 3.11` or from python.org |
+| Python | 3.12+ | Pre-installed on macOS or `brew install python@3.12` |
 | Docker Desktop | Latest | docker.com/products/docker-desktop |
 | gcloud CLI | Latest | `brew install google-cloud-sdk` |
 | Terraform | 1.7+ | `brew install terraform` |
@@ -120,7 +120,7 @@ python data/generators/generate_streaming_events.py \
 
 ---
 
-## Part 2 — GCP Deployment (Phases 4–12)
+## Part 2 — GCP Deployment
 
 > ⚠️ Complete Part 1 (local) before attempting GCP deployment.
 
@@ -164,8 +164,8 @@ cd airflow
 astro dev init          # first time only
 astro dev start         # starts local Airflow at http://localhost:8888
 
-# For Cloud Composer deployment (Phase 7):
-# See docs/cloud-composer-setup.md (created in Phase 7)
+# For Cloud Composer deployment to GCP:
+# See docs/cloud-composer-setup.md
 ```
 
 ### Step 4: Build and push Docker images
