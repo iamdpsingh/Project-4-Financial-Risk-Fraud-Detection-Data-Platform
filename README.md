@@ -233,30 +233,30 @@ This platform is configured to run end-to-end on Google Cloud Platform, processi
 Generate the massive synthetic datasets locally before shipping them to GCP:
 ```bash
 source .venv/bin/activate
-python data/generators/generate_all.py --skip-postgres
+PYTHONPATH=. python data/generators/generate_all.py --skip-postgres
 ```
 *Note: Logs will be automatically generated in the `logs/` directory.*
 
 ### 2. Upload Batch Data to Cloud Storage
 Push the generated CSVs directly into your GCS raw data bucket:
 ```bash
-python ingestion/batch/upload.py --source data/raw
+PYTHONPATH=. python ingestion/batch/upload.py --source data/raw
 ```
 
 ### 3. Start the Live Streaming Generator
 Simulate thousands of live transaction events continuously hitting your GCP Pub/Sub topic:
 ```bash
-python data/generators/generate_streaming.py --pubsub
+PYTHONPATH=. python data/generators/generate_streaming.py --pubsub
 ```
 
 ### 4. Execute Dataflow Pipelines
 Spin up autoscaling Apache Beam workers on Google Cloud Dataflow to process the data:
 ```bash
 # Process historical batch data
-python pipelines/batch/run_dataflow.py
+PYTHONPATH=. python pipelines/batch/run_dataflow.py
 
 # Process live streaming data (Long-running)
-python pipelines/streaming/run_dataflow.py
+PYTHONPATH=. python pipelines/streaming/run_dataflow.py
 ```
 
 ### 5. Launch the Executive Dashboard
