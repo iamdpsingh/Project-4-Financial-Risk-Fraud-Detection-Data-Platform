@@ -39,7 +39,8 @@ def run():
         "--setup_file=./setup.py",
         f"--input_dir={input_dir}",
         "--dataset=staging",
-        "--job_name=batch-ingestion-pipeline"
+        "--job_name=batch-ingestion-pipeline",
+        "--wait_until_finish"
     ]
     
     log.info("Submitting batch pipeline to Google Cloud Dataflow...")

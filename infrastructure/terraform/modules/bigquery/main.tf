@@ -20,9 +20,10 @@ resource "google_bigquery_dataset" "analytics" {
 
 # Example Table: Transaction Risk (Streaming Output)
 resource "google_bigquery_table" "transaction_risk" {
-  dataset_id = google_bigquery_dataset.analytics.dataset_id
-  table_id   = "transaction_risk"
-  project    = var.project_id
+  dataset_id          = google_bigquery_dataset.analytics.dataset_id
+  table_id            = "transaction_risk"
+  project             = var.project_id
+  deletion_protection = false
 
   time_partitioning {
     type  = "DAY"
