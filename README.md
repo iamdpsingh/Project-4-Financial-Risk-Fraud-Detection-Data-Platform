@@ -27,7 +27,7 @@ Every single transaction is scored for fraud risk using a custom **rule engine**
   - [Option 2: Production on GCP](#-option-2-production-on-google-cloud-platform)
 - [5. Running Tests, Lint & Type Checks](#-running-tests-lint--type-checks)
 - [6. CI/CD](#-cicd)
-- [7. Project Status](#-project-status--whats-scaffolded-vs-implemented)
+- [7. Project Status](#-project-status)
 
 ---
 

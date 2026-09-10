@@ -15,6 +15,7 @@ Run directly:
     python data/generators/generate_devices.py
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -28,8 +29,7 @@ from pathlib import Path
 from config import NUM_DEVICES, OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 from faker import Faker
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 DEVICE_TYPES = ["mobile", "desktop", "tablet", "pos_terminal"]
 DEVICE_TYPE_WEIGHTS = [0.60, 0.25, 0.10, 0.05]

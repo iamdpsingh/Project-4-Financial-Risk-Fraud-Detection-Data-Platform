@@ -15,6 +15,7 @@ Run directly:
     python data/generators/generate_merchants.py --count 500
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -35,8 +36,7 @@ from config import (
 )
 from faker import Faker
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 # MCC codes for each category. These are real ISO 18245 codes.
 CATEGORY_MCC = {

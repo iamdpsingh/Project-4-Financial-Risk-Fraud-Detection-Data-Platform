@@ -5,6 +5,7 @@ In a real setup, this would use a full GE context directory. For this local simu
 we use the ephemeral context to validate pandas DataFrames loaded from our CSV outputs.
 """
 
+from utils.logger import get_logger
 import argparse
 import logging
 from pathlib import Path
@@ -12,8 +13,7 @@ from pathlib import Path
 import great_expectations as gx
 import pandas as pd
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  [%(name)s]  %(message)s")
-log = logging.getLogger("data_quality")
+log = get_logger("data_quality")
 
 def check_transactions(data_dir: Path):
     """Basic data quality checks for transactions using pandas + Great Expectations."""

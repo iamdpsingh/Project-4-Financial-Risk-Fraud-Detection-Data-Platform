@@ -5,6 +5,7 @@ Reads raw CSV files from GCS (or local), validates them, applies basic
 transformations, and loads the data into BigQuery staging tables.
 """
 
+from utils.logger import get_logger
 import logging
 from pathlib import Path
 
@@ -15,15 +16,7 @@ from transforms import ParseCSVLine, TransformForBigQuery, ValidateRecord
 # Configure logging to write to both console and a file in the logs/ directory
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
-    handlers=[
-        logging.FileHandler(log_dir / "batch_pipeline.log"),
-        logging.StreamHandler()
-    ]
-)
-log = logging.getLogger("batch_pipeline")
+log = get_logger("batch_pipeline")
 
 # Headers for parsing the CSV files
 HEADERS = {
@@ -124,5 +117,5 @@ def run_pipeline(argv=None):
                 )
 
 if __name__ == "__main__":
-    logging.getLogger().setLevel(logging.INFO)
+    get_logger(__name__).setLevel(logging.INFO)
     run_pipeline()

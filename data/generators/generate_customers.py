@@ -11,6 +11,7 @@ Run directly:
     python data/generators/generate_customers.py --count 5000 --output custom_dir/
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -30,8 +31,7 @@ from config import (
 )
 from faker import Faker
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 
 def seeded_uuid(rng: random.Random) -> str:

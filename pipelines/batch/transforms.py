@@ -2,13 +2,14 @@
 Apache Beam DoFn classes and transformations for the batch pipeline.
 """
 
+from utils.logger import get_logger
 import logging
 from typing import Any
 import typing
 
 import apache_beam as beam
 
-log = logging.getLogger("batch_pipeline")
+log = get_logger("batch_pipeline")
 
 class ParseCSVLine(beam.DoFn):
     """Parses a CSV string into a dictionary given a list of headers."""

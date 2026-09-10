@@ -5,13 +5,13 @@ Usage:
     python pipelines/streaming/run_local.py
 """
 
+from utils.logger import get_logger
 import logging
 import subprocess
 import sys
 from pathlib import Path
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  [%(name)s]  %(message)s")
-log = logging.getLogger("streaming_run_local")
+log = get_logger("streaming_run_local")
 
 def run():
     repo_root = Path(__file__).parent.parent.parent

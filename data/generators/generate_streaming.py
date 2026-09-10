@@ -20,6 +20,7 @@ Usage:
     python data/generators/generate_streaming.py --rate 10 --project my-project --pubsub
 """
 
+from utils.logger import get_logger
 import argparse
 import json
 import logging
@@ -33,8 +34,7 @@ from pathlib import Path
 
 from config import OUTPUT_DIR, RANDOM_SEED
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 
 def load_reference_data(output_dir: Path) -> tuple[list, list, list, list]:

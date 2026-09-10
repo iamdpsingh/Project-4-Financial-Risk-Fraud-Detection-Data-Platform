@@ -5,13 +5,13 @@ Usage:
     python pipelines/batch/run_local.py
 """
 
+from utils.logger import get_logger
 import logging
 import subprocess
 import sys
 from pathlib import Path
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  [%(name)s]  %(message)s")
-log = logging.getLogger("batch_run_local")
+log = get_logger("batch_run_local")
 
 def run():
     # Make sure we're at the repo root

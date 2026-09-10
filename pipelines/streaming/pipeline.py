@@ -6,6 +6,7 @@ context, scores them for fraud risk using the Rule Engine, and writes the
 results to BigQuery.
 """
 
+from utils.logger import get_logger
 import logging
 from pathlib import Path
 
@@ -19,15 +20,7 @@ load_dotenv()
 # Configure logging to write to both console and a file in the logs/ directory
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
-    handlers=[
-        logging.FileHandler(log_dir / "streaming_pipeline.log"),
-        logging.StreamHandler()
-    ]
-)
-log = logging.getLogger("streaming_pipeline")
+log = get_logger(__name__)
 
 class StreamingPipelineOptions(PipelineOptions):
     @classmethod
@@ -152,5 +145,5 @@ def run_pipeline(argv=None):
             )
 
 if __name__ == "__main__":
-    logging.getLogger().setLevel(logging.INFO)
+    get_logger(__name__).setLevel(logging.INFO)
     run_pipeline()

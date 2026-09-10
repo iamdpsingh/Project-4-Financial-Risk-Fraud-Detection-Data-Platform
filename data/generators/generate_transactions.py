@@ -22,6 +22,7 @@ Run directly:
     python data/generators/generate_transactions.py --count 100000
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -42,8 +43,7 @@ from config import (
     SAMPLE_SIZE,
 )
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 TRANSACTION_TYPES = ["purchase", "withdrawal", "transfer", "refund", "payment", "deposit"]
 TRANSACTION_TYPE_WEIGHTS = [0.55, 0.10, 0.15, 0.05, 0.10, 0.05]

@@ -3,6 +3,7 @@ Beam DoFn classes for the streaming pipeline.
 Handles parsing Pub/Sub messages, evaluating fraud rules, and scoring risk.
 """
 
+from utils.logger import get_logger
 import json
 import logging
 from typing import Any
@@ -11,7 +12,7 @@ import apache_beam as beam
 
 # We add the fraud module to the path when running locally, or it gets packaged
 # in the actual Dataflow job. For simplicity in the DoFn, we import it inside.
-log = logging.getLogger("streaming_pipeline")
+log = get_logger("streaming_pipeline")
 
 class ParsePubSubMessage(beam.DoFn):
     """Parses a JSON string from Pub/Sub into a Python dictionary."""

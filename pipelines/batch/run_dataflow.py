@@ -4,6 +4,7 @@ Runner script for the Batch Dataflow pipeline.
 Executes the pipeline on Google Cloud Dataflow instead of the local DirectRunner.
 """
 
+from utils.logger import get_logger
 import logging
 import os
 import subprocess
@@ -12,8 +13,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  [%(name)s]  %(message)s")
-log = logging.getLogger("batch_run_dataflow")
+log = get_logger("batch_run_dataflow")
 
 def run():
     repo_root = Path(__file__).parent.parent.parent

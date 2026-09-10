@@ -20,6 +20,7 @@ Run directly:
     python data/generators/generate_events.py
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -30,8 +31,7 @@ from pathlib import Path
 
 from config import OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 # Possible events in a transaction's lifecycle and how many seconds after
 # the transaction_timestamp each event typically fires.

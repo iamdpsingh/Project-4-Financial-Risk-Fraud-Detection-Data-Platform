@@ -6,6 +6,7 @@ It supports incremental extraction using a high-water mark approach on the
 `updated_at` column, ensuring we only pull new or modified records.
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -19,15 +20,7 @@ from dotenv import load_dotenv
 # Configure logging to write to both console and a file in the logs/ directory
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
-    handlers=[
-        logging.FileHandler(log_dir / "extract.log"),
-        logging.StreamHandler()
-    ]
-)
-log = logging.getLogger("batch_extract")
+log = get_logger("batch_extract")
 
 # Make sure we load the env variables for Postgres credentials
 load_dotenv(Path(__file__).parent.parent.parent / ".env")

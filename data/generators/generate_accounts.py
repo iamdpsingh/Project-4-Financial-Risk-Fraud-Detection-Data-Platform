@@ -14,6 +14,7 @@ Note: this script needs the customer CSV to already exist, because
 accounts are linked to customers by customer_id.
 """
 
+from utils.logger import get_logger
 import argparse
 import csv
 import logging
@@ -31,8 +32,7 @@ from config import (
     SAMPLE_SIZE,
 )
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 ACCOUNT_TYPES = ["checking", "savings", "credit", "loan", "investment"]
 ACCOUNT_TYPE_WEIGHTS = [0.35, 0.30, 0.20, 0.10, 0.05]

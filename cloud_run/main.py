@@ -1,3 +1,4 @@
+from utils.logger import get_logger
 import json
 import logging
 import os
@@ -10,8 +11,7 @@ from .models import TransactionEvent
 
 load_dotenv()
 
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("ingestion-api")
+logger = get_logger("ingestion-api")
 
 app = FastAPI(title="Financial Risk Ingestion API", version="1.0.0")
 

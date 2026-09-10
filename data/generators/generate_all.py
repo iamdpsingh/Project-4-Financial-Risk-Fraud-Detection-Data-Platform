@@ -16,6 +16,7 @@ Usage:
     python data/generators/generate_all.py --customers 1000 --transactions 50000
 """
 
+from utils.logger import get_logger
 import argparse
 import logging
 import os
@@ -46,16 +47,7 @@ from config import (
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s  [%(name)s]  %(message)s",
-    datefmt="%H:%M:%S",
-    handlers=[
-        logging.FileHandler(log_dir / "generate_all.log"),
-        logging.StreamHandler(),
-    ],
-)
-log = logging.getLogger("generate_all")
+log = get_logger("generate_all")
 
 
 def ensure_directories(output_dir: Path) -> None:
