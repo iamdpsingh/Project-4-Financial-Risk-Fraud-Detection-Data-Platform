@@ -166,7 +166,7 @@ with col2:
         fig_line = px.area(
             trend_df, 
             x='hour', 
-            y='fraud_amount_usd',
+            y='fraud_volume',
             markers=True,
             color_discrete_sequence=['#ef553b'],
             template="plotly_dark"
@@ -186,7 +186,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # 3. Data Table
 st.subheader("🚨 Critical Threat Feed")
-recent_fraud_df = fetch_data(queries.get_recent_high_risk(PROJECT_ID, DATASET))
+recent_fraud_df = fetch_data(queries.get_recent_anomalies(PROJECT_ID, DATASET))
 if not recent_fraud_df.empty:
     # Stylize the dataframe
     st.dataframe(
