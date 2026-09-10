@@ -136,3 +136,4 @@ beam-temp/
 dataflow-staging/
 data/staged/
 data/dlq/
+logs/

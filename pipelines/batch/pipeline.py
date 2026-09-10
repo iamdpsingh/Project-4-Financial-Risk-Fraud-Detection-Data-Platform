@@ -14,6 +14,17 @@ from apache_beam.options.pipeline_options import SetupOptions
 
 from transforms import ParseCSVLine, ValidateRecord, TransformForBigQuery
 
+# Configure logging to write to both console and a file in the logs/ directory
+log_dir = Path("logs")
+log_dir.mkdir(exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
+    handlers=[
+        logging.FileHandler(log_dir / "batch_pipeline.log"),
+        logging.StreamHandler()
+    ]
+)
 log = logging.getLogger("batch_pipeline")
 
 # Headers for parsing the CSV files

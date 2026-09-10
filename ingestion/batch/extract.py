@@ -17,7 +17,17 @@ from pathlib import Path
 import psycopg2
 from dotenv import load_dotenv
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  [%(name)s]  %(message)s")
+# Configure logging to write to both console and a file in the logs/ directory
+log_dir = Path("logs")
+log_dir.mkdir(exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
+    handlers=[
+        logging.FileHandler(log_dir / "extract.log"),
+        logging.StreamHandler()
+    ]
+)
 log = logging.getLogger("batch_extract")
 
 # Make sure we load the env variables for Postgres credentials

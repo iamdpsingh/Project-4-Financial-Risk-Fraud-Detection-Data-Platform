@@ -16,6 +16,17 @@ from apache_beam.options.pipeline_options import StandardOptions
 
 from transforms import ParsePubSubMessage, EnrichTransaction, ScoreFraudRisk, FormatForBigQuery
 
+# Configure logging to write to both console and a file in the logs/ directory
+log_dir = Path("logs")
+log_dir.mkdir(exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
+    handlers=[
+        logging.FileHandler(log_dir / "streaming_pipeline.log"),
+        logging.StreamHandler()
+    ]
+)
 log = logging.getLogger("streaming_pipeline")
 
 class StreamingPipelineOptions(PipelineOptions):
