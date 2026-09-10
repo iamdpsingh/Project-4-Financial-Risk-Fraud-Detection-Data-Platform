@@ -11,12 +11,9 @@
   <img src="https://img.shields.io/badge/Docker-24+-2496ED?style=for-the-badge&logo=docker" />
 </p>
 
-A production-style financial data engineering platform designed to simulate how a financial
-institution processes millions of transactions. It generates synthetic banking data, ingests it
-in both **batch** (PostgreSQL → GCS → Dataflow → BigQuery) and **streaming** (Cloud Run → Pub/Sub
-→ Dataflow) modes, scores every transaction for fraud risk with a rule engine, models the result
-with **dbt**, and surfaces it on a **Streamlit** dashboard. Everything is orchestrated with
-**Airflow**, provisioned with **Terraform**, and validated by a GitHub Actions CI/CD pipeline.
+A production-grade, end-to-end financial data engineering platform designed to process massive datasets at scale. It generates **2.5 million (25 Lakhs) synthetic banking transactions** and 7.5 million lifecycle events, ingesting them in both **batch** (GCS → Dataflow → BigQuery) and **streaming** (Cloud Run → Pub/Sub → Dataflow) modes. 
+
+Every single transaction is scored for fraud risk using a custom **rule engine**, modeled with **dbt**, and surfaced on a beautiful **Streamlit** dashboard. Everything is orchestrated with **Airflow**, provisioned natively on Google Cloud with **Terraform**, and validated by a GitHub Actions CI/CD pipeline.
 
 ---
 

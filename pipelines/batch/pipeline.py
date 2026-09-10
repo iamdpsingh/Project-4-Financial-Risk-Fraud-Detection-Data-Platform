@@ -16,7 +16,7 @@ from transforms import ParseCSVLine, TransformForBigQuery, ValidateRecord
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
     handlers=[
         logging.FileHandler(log_dir / "batch_pipeline.log"),

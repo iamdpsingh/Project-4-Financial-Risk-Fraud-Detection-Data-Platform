@@ -20,7 +20,7 @@ load_dotenv()
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
     handlers=[
         logging.FileHandler(log_dir / "streaming_pipeline.log"),
@@ -66,7 +66,8 @@ def run_pipeline(argv=None):
     input_subscription = custom_options.input_subscription
     output_local = custom_options.output_local
     dataset = custom_options.dataset
-    project = custom_options.project_id
+    import os
+    project = custom_options.project_id or os.getenv("GCP_PROJECT_ID", "financial-data-platform-508216")
 
     with beam.Pipeline(options=pipeline_options) as p:
         

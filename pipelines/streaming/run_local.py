@@ -10,7 +10,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  [%(name)s]  %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  [%(name)s]  %(message)s")
 log = logging.getLogger("streaming_run_local")
 
 def run():

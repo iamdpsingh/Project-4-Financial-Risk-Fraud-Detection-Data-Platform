@@ -30,7 +30,7 @@ from pathlib import Path
 
 from config import OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
 
 # Possible events in a transaction's lifecycle and how many seconds after

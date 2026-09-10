@@ -12,7 +12,7 @@ from pathlib import Path
 import great_expectations as gx
 import pandas as pd
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  [%(name)s]  %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  [%(name)s]  %(message)s")
 log = logging.getLogger("data_quality")
 
 def check_transactions(data_dir: Path):

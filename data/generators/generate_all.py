@@ -47,7 +47,7 @@ log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s  [%(name)s]  %(message)s",
     datefmt="%H:%M:%S",
     handlers=[

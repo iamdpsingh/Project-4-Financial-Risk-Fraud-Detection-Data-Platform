@@ -33,7 +33,7 @@ from pathlib import Path
 
 from config import OUTPUT_DIR, RANDOM_SEED
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
 
 

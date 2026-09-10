@@ -27,7 +27,7 @@ from pathlib import Path
 from config import NUM_DEVICES, OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 from faker import Faker
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
 
 DEVICE_TYPES = ["mobile", "desktop", "tablet", "pos_terminal"]

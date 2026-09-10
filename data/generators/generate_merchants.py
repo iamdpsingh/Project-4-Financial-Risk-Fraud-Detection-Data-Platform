@@ -35,7 +35,7 @@ from config import (
 )
 from faker import Faker
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
 
 # MCC codes for each category. These are real ISO 18245 codes.

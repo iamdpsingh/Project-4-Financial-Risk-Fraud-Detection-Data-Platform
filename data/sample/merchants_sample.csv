@@ -1,101 +1,101 @@
 merchant_id,merchant_name,merchant_category,mcc_code,country,city,risk_category,created_at,updated_at
-888667a9-e289-4af9-9275-5a9a1f947aa0,PetroStop Group,Fuel & Gas Station,5541,US,North Judithbury,low,2018-01-31T00:00:00+00:00,2018-01-31T00:00:00+00:00
-92eff639-b62a-4288-a971-1e0074f263c3,ShopFast Direct,Online Retail,5999,US,East Jill,low,2021-02-11T00:00:00+00:00,2021-02-11T00:00:00+00:00
-eeefe967-ce9a-42b7-b208-6c37a8713926,DirectBuy Ltd,Online Retail,5999,US,New Roberttown,low,2017-08-10T00:00:00+00:00,2017-08-10T00:00:00+00:00
-89aaaf27-0524-4941-b1ae-af13e5b54b03,ByteStore Group,Electronics,5734,AU,East Jessetown,low,2022-11-12T00:00:00+00:00,2022-11-12T00:00:00+00:00
-b24f1055-46bf-4988-b275-9196bbea7f58,GlobeInn Direct,Travel & Hotels,7011,IN,Lake Debra,low,2015-01-27T00:00:00+00:00,2015-01-27T00:00:00+00:00
-5f5e541c-0f01-4782-a6fb-aed124ab9691,FoodRush Inc,Restaurant & Food Delivery,5812,US,Robinsonshire,low,2018-10-10T00:00:00+00:00,2018-10-10T00:00:00+00:00
-399e3365-9338-4070-b566-b3fa6a086d69,TastyHub Ltd,Restaurant & Food Delivery,5812,IN,Lisatown,low,2018-11-09T00:00:00+00:00,2018-11-09T00:00:00+00:00
-09f8ce51-4471-4793-955b-d5b138f48c1e,StreamBox Global,Subscription Services,7372,GB,Lake Roberto,low,2019-03-31T00:00:00+00:00,2019-03-31T00:00:00+00:00
-f7a03efa-a7b5-402b-bd78-c6e4bae45209,TransferGo Inc,Money Transfer,4829,DE,Ericmouth,medium,2019-01-21T00:00:00+00:00,2019-01-21T00:00:00+00:00
-a59beb7a-67b4-4133-ad96-b6bb2a4e3a92,ShopFast Group,Online Retail,5999,US,North Noahstad,low,2018-03-31T00:00:00+00:00,2018-03-31T00:00:00+00:00
-afa2a23e-ba76-46ef-8916-c4857f40824a,CoinVault Co,Cryptocurrency Exchange,6051,IN,Cassandraton,high,2020-02-01T00:00:00+00:00,2020-02-01T00:00:00+00:00
-32565788-669e-4da4-99b7-e236c15f7cab,FoodRush Co,Restaurant & Food Delivery,5812,US,Herrerafurt,low,2017-12-29T00:00:00+00:00,2017-12-29T00:00:00+00:00
-db9c5765-4213-429c-a181-08d2a308ac31,ByteStore Global,Electronics,5734,US,New Kellystad,low,2020-03-08T00:00:00+00:00,2020-03-08T00:00:00+00:00
-0117dba5-fa23-49bb-b046-4a4b92cb8193,ATMPlus Online,ATM & Cash Advance,6011,CA,Lake Chad,medium,2021-03-31T00:00:00+00:00,2021-03-31T00:00:00+00:00
-379a1c07-98a8-433d-99ea-903ce6284829,QuickSend Online,Money Transfer,4829,SG,Port Keith,medium,2017-07-27T00:00:00+00:00,2017-07-27T00:00:00+00:00
-0f4041a5-61a8-4a4d-be2f-5f50c584d00e,TastyHub Group,Restaurant & Food Delivery,5812,US,Port Jesseville,low,2021-05-12T00:00:00+00:00,2021-05-12T00:00:00+00:00
-bd10137d-c025-41a4-ab03-c1415e2e1dc5,WellDrug Co,Healthcare & Pharmacy,5912,IN,Ramirezstad,low,2022-03-18T00:00:00+00:00,2022-03-18T00:00:00+00:00
-d2392c2e-645f-464c-9983-277744b40642,DailyGrocer Direct,Grocery & Supermarket,5411,US,West Michael,low,2021-04-18T00:00:00+00:00,2021-04-18T00:00:00+00:00
-87c011fa-63f6-49f0-ab7c-9919ff72fcb0,LuckySpins,Online Gambling,7995,IN,Jacquelineland,high,2017-06-17T00:00:00+00:00,2017-06-17T00:00:00+00:00
-1cfbab11-c3ca-4952-b10b-ce2d950b9e2f,BuyNow Co,Online Retail,5999,US,New Jessica,low,2016-03-25T00:00:00+00:00,2016-03-25T00:00:00+00:00
-1d8c320f-d87b-474c-a0e1-f02ce044ed2c,MediaBox Direct,Entertainment & Streaming,7994,IN,South Noah,low,2015-09-18T00:00:00+00:00,2015-09-18T00:00:00+00:00
-12e0de10-b746-423b-a954-b11e55b4a848,FastFuel Inc,Fuel & Gas Station,5541,GB,Lake Mark,low,2017-10-26T00:00:00+00:00,2017-10-26T00:00:00+00:00
-4f2e54bb-cbbd-409f-97a8-52de0424ff09,CarePharma Inc,Healthcare & Pharmacy,5912,GB,East Lydiamouth,low,2017-12-28T00:00:00+00:00,2017-12-28T00:00:00+00:00
-f73c40f7-d7d9-4882-80dd-50afdcf3bea2,DailyGrocer Co,Grocery & Supermarket,5411,US,Adamsborough,low,2015-01-14T00:00:00+00:00,2015-01-14T00:00:00+00:00
-cffc332d-15fc-44c3-b89a-1c7a1ebe4f29,DigiMart Group,Electronics,5734,US,Jasonfort,low,2022-01-05T00:00:00+00:00,2022-01-05T00:00:00+00:00
-0004187a-6087-4a01-b9a4-cce3aa6378ed,DirectBuy Ltd,Online Retail,5999,SG,Wilkersonmouth,low,2021-01-18T00:00:00+00:00,2021-01-18T00:00:00+00:00
-84640302-024b-4eb0-9ec9-ce6bb4dc6a24,QuikGas Global,Fuel & Gas Station,5541,GB,West Donald,low,2016-04-03T00:00:00+00:00,2016-04-03T00:00:00+00:00
-e9181794-a077-4995-bd0d-8570b399bd12,FreshMart Inc,Grocery & Supermarket,5411,US,Juliechester,low,2021-05-12T00:00:00+00:00,2021-05-12T00:00:00+00:00
-3862015b-145e-4bd1-97e0-25e0cc71cd4e,SubHub Co,Subscription Services,7372,AE,Coxberg,low,2020-12-21T00:00:00+00:00,2020-12-21T00:00:00+00:00
-0c5b8ff9-e34b-41a0-aca2-26ed1027340a,CarePharma Direct,Healthcare & Pharmacy,5912,JP,Daviston,low,2016-11-07T00:00:00+00:00,2016-11-07T00:00:00+00:00
-2d25b145-b65a-4aaa-b199-d77fcd441924,CardZone Global,Gift Cards,5969,FR,East Courtneychester,high,2022-09-26T00:00:00+00:00,2022-09-26T00:00:00+00:00
-4a5c7197-b449-49a6-a8b5-a005ea875517,MealDash,Restaurant & Food Delivery,5812,CA,South Patrickmouth,low,2019-03-10T00:00:00+00:00,2019-03-10T00:00:00+00:00
-bde10df0-9bed-4e55-9ee3-ad7e1311c432,ShopFast Group,Online Retail,5999,US,Tashatown,low,2018-10-16T00:00:00+00:00,2018-10-16T00:00:00+00:00
-20609830-68c8-4136-9f27-0c993ba8b78b,FastFuel Group,Fuel & Gas Station,5541,US,Lake Nicoleview,low,2022-12-09T00:00:00+00:00,2022-12-09T00:00:00+00:00
-4821dcdf-a592-4fa4-9c04-37afe672e39f,ShopFast Group,Online Retail,5999,US,Danielchester,low,2018-09-15T00:00:00+00:00,2018-09-15T00:00:00+00:00
-a3f0057d-c02b-48f2-873e-4fa3c629b589,GreenBasket,Grocery & Supermarket,5411,GB,South Aaron,low,2021-01-17T00:00:00+00:00,2021-01-17T00:00:00+00:00
-857589e9-0366-4dcf-9e3b-4949d43c7edf,GreenBasket Inc,Grocery & Supermarket,5411,GB,Teresaburgh,low,2019-07-26T00:00:00+00:00,2019-07-26T00:00:00+00:00
-315e46d1-30c0-4838-849b-bcb45c5c7fca,MegaStore,Online Retail,5999,IN,Port Colleenhaven,low,2019-10-01T00:00:00+00:00,2019-10-01T00:00:00+00:00
-1c4775fe-f524-4ee7-81ff-8283d8a96c9c,CryptoX Ltd,Cryptocurrency Exchange,6051,US,East Nathaniel,high,2022-04-30T00:00:00+00:00,2022-04-30T00:00:00+00:00
-ac710d90-0024-427b-a145-0279f3536c5f,QuickBite Group,Restaurant & Food Delivery,5812,IN,New Stephanie,low,2016-03-23T00:00:00+00:00,2016-03-23T00:00:00+00:00
-899dcf26-114c-472d-9fa9-14295eb2a58e,BuyNow Global,Online Retail,5999,IN,New Mariotown,low,2019-09-25T00:00:00+00:00,2019-09-25T00:00:00+00:00
-151b7536-037c-4407-9c55-4ee8a48d7351,SkyLodge Inc,Travel & Hotels,7011,BR,West Natashaport,low,2015-11-05T00:00:00+00:00,2015-11-05T00:00:00+00:00
-dbcf7e0c-e693-4da0-918c-8d834e6d06b3,ShopFast Group,Online Retail,5999,MX,North John,low,2015-03-02T00:00:00+00:00,2015-03-02T00:00:00+00:00
-45741f64-9566-4eae-b334-d576bbcbea22,MegaStore Ltd,Online Retail,5999,GB,North Jessicaland,low,2017-05-25T00:00:00+00:00,2017-05-25T00:00:00+00:00
-0daa4d46-89ed-46bb-a054-90b5b56fbcad,QuickCart,Online Retail,5999,US,East Donna,low,2019-05-19T00:00:00+00:00,2019-05-19T00:00:00+00:00
-cc02980a-58b6-48ed-a614-b3b585caa20c,SaveMore Co,Grocery & Supermarket,5411,CA,West Allison,low,2021-03-26T00:00:00+00:00,2021-03-26T00:00:00+00:00
-b6304976-af57-40c0-8dbc-e6964e5910ad,DirectBuy Ltd,Online Retail,5999,US,Brandtside,low,2015-08-28T00:00:00+00:00,2015-08-28T00:00:00+00:00
-025132bb-6174-445d-a0d8-e694d45a854d,AutoRenew Co,Subscription Services,7372,US,Lake Larry,low,2021-07-20T00:00:00+00:00,2021-07-20T00:00:00+00:00
-e1699dc3-f6a3-4d2a-b3fb-0aa8d00cb65a,ShopFast Inc,Online Retail,5999,GB,Samuelhaven,low,2017-01-31T00:00:00+00:00,2017-01-31T00:00:00+00:00
-67350298-51ff-4487-9d53-a8a459ad5981,HealthFirst Ltd,Healthcare & Pharmacy,5912,US,Martinezbury,low,2016-05-06T00:00:00+00:00,2016-05-06T00:00:00+00:00
-0d7b99e5-1a65-4ee3-97ca-987dd17ddd92,QuikGas Global,Fuel & Gas Station,5541,IN,West Andrewside,low,2021-07-18T00:00:00+00:00,2021-07-18T00:00:00+00:00
-3fa2e53c-844d-4e9f-bc45-49b920056ab8,DailyGrocer Direct,Grocery & Supermarket,5411,AU,New Jeffrey,low,2017-09-04T00:00:00+00:00,2017-09-04T00:00:00+00:00
-96d72343-9a07-4cf2-b5d3-a5badb9874d9,QuickCart Inc,Online Retail,5999,CA,Lake Crystalbury,low,2020-02-16T00:00:00+00:00,2020-02-16T00:00:00+00:00
-41acfa7d-4d11-48fe-9a70-d8d937bb90fd,ShopFast Inc,Online Retail,5999,DE,North Micheleland,low,2021-04-25T00:00:00+00:00,2021-04-25T00:00:00+00:00
-6f406987-59a8-4bb7-a8da-6918b15f3c54,DigiMart Inc,Electronics,5734,GB,West Elizabeth,low,2016-06-26T00:00:00+00:00,2016-06-26T00:00:00+00:00
-731be7da-b789-4952-a676-af00148565b4,ChainTrade Global,Cryptocurrency Exchange,6051,IN,New David,high,2016-10-08T00:00:00+00:00,2016-10-08T00:00:00+00:00
-3ff2dfad-7f94-4b91-9119-8497dc1af929,FastFuel Global,Fuel & Gas Station,5541,ZA,Sanchezfort,low,2022-05-02T00:00:00+00:00,2022-05-02T00:00:00+00:00
-d1999a74-2df9-4e14-b79e-4c2906dd8826,LuxeMart Inc,Luxury Goods,5944,US,Leeville,medium,2016-07-04T00:00:00+00:00,2016-07-04T00:00:00+00:00
-19d59bbc-2ebd-4895-b743-623bd8391c64,CoinVault Global,Cryptocurrency Exchange,6051,AU,Gomezchester,high,2016-09-28T00:00:00+00:00,2016-09-28T00:00:00+00:00
-c26debc8-824c-4ea5-a35d-64a272eab384,QuikGas,Fuel & Gas Station,5541,AU,Shieldston,low,2017-04-13T00:00:00+00:00,2017-04-13T00:00:00+00:00
-62a0282c-1db5-40fc-94ce-b2665abc500c,FreshMart Direct,Grocery & Supermarket,5411,FR,North Richardmouth,low,2015-07-28T00:00:00+00:00,2015-07-28T00:00:00+00:00
-b5a79e9c-63c2-4aa3-a35f-fde415578031,TransferGo Global,Money Transfer,4829,US,East Jamesside,medium,2018-09-28T00:00:00+00:00,2018-09-28T00:00:00+00:00
-9fb4a816-26ed-453c-96bc-cb7475c876ee,MegaStore Ltd,Online Retail,5999,IN,Taylorburgh,low,2022-11-30T00:00:00+00:00,2022-11-30T00:00:00+00:00
-3c5e6a57-0ae1-4807-a473-ffdb1df4deac,BuyNow Ltd,Online Retail,5999,JP,Stevenland,low,2022-10-01T00:00:00+00:00,2022-10-01T00:00:00+00:00
-01f778ee-1653-451f-9a8f-79edbce51e10,SwiftPay Co,Money Transfer,4829,DE,Mortonside,medium,2016-08-29T00:00:00+00:00,2016-08-29T00:00:00+00:00
-9d77e521-087e-4d37-ad95-3e4b9dbaf3cd,QuickCart Group,Online Retail,5999,IN,North Deniseside,low,2015-06-13T00:00:00+00:00,2015-06-13T00:00:00+00:00
-0ca6d5be-2fc8-4f17-a026-1c125b64861f,WellDrug Co,Healthcare & Pharmacy,5912,CA,North Sarabury,low,2018-12-19T00:00:00+00:00,2018-12-19T00:00:00+00:00
-b79f7f3d-e288-4d84-982b-6174dd0db772,EliteGoods Direct,Luxury Goods,5944,US,South Todd,medium,2016-10-27T00:00:00+00:00,2016-10-27T00:00:00+00:00
-58cbba6c-30a6-48b3-991e-cdc457932ed8,MegaStore Group,Online Retail,5999,AU,Port Richard,low,2018-09-22T00:00:00+00:00,2018-09-22T00:00:00+00:00
-409e41af-a544-43e0-b2c1-30f6fdc18a75,SaveMore Ltd,Grocery & Supermarket,5411,SG,East Nicholasfurt,low,2016-03-18T00:00:00+00:00,2016-03-18T00:00:00+00:00
-bc8e0953-04e8-47d3-b1e6-5f9156aa2db0,MoneyBridge Global,Money Transfer,4829,US,Saramouth,medium,2020-02-29T00:00:00+00:00,2020-02-29T00:00:00+00:00
-10aa5b19-79f3-473e-855d-7c1dc0a0ad91,QuickSend Group,Money Transfer,4829,BR,Rodneyside,medium,2017-07-02T00:00:00+00:00,2017-07-02T00:00:00+00:00
-b48293fb-44bd-4f3c-acc7-d5731e673618,TastyHub Online,Restaurant & Food Delivery,5812,IN,Mooreport,low,2015-10-12T00:00:00+00:00,2015-10-12T00:00:00+00:00
-56a72f41-8b46-4ebc-a739-af20d1830853,QuikGas Ltd,Fuel & Gas Station,5541,IN,North Beth,low,2021-01-05T00:00:00+00:00,2021-01-05T00:00:00+00:00
-07bebaf2-d4d1-4819-a059-fd2cfc47cf2d,DirectBuy Global,Online Retail,5999,NG,Lake Leeton,low,2017-01-01T00:00:00+00:00,2017-01-01T00:00:00+00:00
-d4bfd133-06f1-4e98-a8ac-9deb18bc72e6,QuickCart Direct,Online Retail,5999,DE,Shawhaven,low,2018-11-16T00:00:00+00:00,2018-11-16T00:00:00+00:00
-eb4ef6a1-4d80-480c-8673-cc4d78d5f2df,PetroStop Global,Fuel & Gas Station,5541,GB,North Susan,low,2019-04-27T00:00:00+00:00,2019-04-27T00:00:00+00:00
-b3e0c05f-0a88-4cdd-858d-f3b70b0ae9ab,DirectBuy Group,Online Retail,5999,IN,Port Jacobland,low,2020-10-30T00:00:00+00:00,2020-10-30T00:00:00+00:00
-757f217a-4bd8-4035-9979-267c077e1fcf,TastyHub Online,Restaurant & Food Delivery,5812,US,South David,low,2022-06-13T00:00:00+00:00,2022-06-13T00:00:00+00:00
-c10e84cc-c41e-419b-bbb8-fd4f696ff305,CarePharma Direct,Healthcare & Pharmacy,5912,US,New Brooke,low,2018-05-15T00:00:00+00:00,2018-05-15T00:00:00+00:00
-b3245cd7-ce68-41a2-893f-20ffacc3d6b5,QuickBite Group,Restaurant & Food Delivery,5812,CA,South Dianeshire,low,2021-03-20T00:00:00+00:00,2021-03-20T00:00:00+00:00
-dd9ed1d7-b7ac-4853-aaa3-2bf13af29cd6,GlobeInn Global,Travel & Hotels,7011,JP,Sarahborough,low,2022-08-06T00:00:00+00:00,2022-08-06T00:00:00+00:00
-2ed7fde1-74be-4876-b134-52df54ea7a13,TastyHub Group,Restaurant & Food Delivery,5812,AE,Johnfurt,low,2018-05-29T00:00:00+00:00,2018-05-29T00:00:00+00:00
-a464ae01-c67b-4b4c-907a-6450b2d7ec7c,TripNest,Travel & Hotels,7011,DE,Lake Debbie,low,2022-05-05T00:00:00+00:00,2022-05-05T00:00:00+00:00
-85d153ca-fa09-4ff8-a3ec-6f4756fc618c,SkyLodge Co,Travel & Hotels,7011,CA,Stewartland,low,2020-09-24T00:00:00+00:00,2020-09-24T00:00:00+00:00
-e4c76018-092f-4bde-a7fe-5cd3984af8e8,CarePharma Inc,Healthcare & Pharmacy,5912,IN,South Christineshire,low,2022-06-12T00:00:00+00:00,2022-06-12T00:00:00+00:00
-bbe4f0b9-62eb-4bf3-9edb-dc0ce2836f0f,ClickWatch Group,Entertainment & Streaming,7994,AU,North Amandahaven,low,2022-07-18T00:00:00+00:00,2022-07-18T00:00:00+00:00
-aa4e5dfa-1b44-484d-87fb-c3b0caaee96f,StreamNow,Entertainment & Streaming,7994,US,Davidstad,low,2015-07-09T00:00:00+00:00,2015-07-09T00:00:00+00:00
-f8049410-25dd-4c69-8710-adfb5f3dacb8,FuelPoint Group,Fuel & Gas Station,5541,SG,East Mikeburgh,low,2020-02-09T00:00:00+00:00,2020-02-09T00:00:00+00:00
-1f476bb1-e8dd-4687-ab51-84655eb5c611,SubHub Co,Subscription Services,7372,IN,Bassport,low,2019-06-25T00:00:00+00:00,2019-06-25T00:00:00+00:00
-36240ea5-ecca-4b69-8384-f6882c72e2e3,WellDrug Group,Healthcare & Pharmacy,5912,US,Lake Lisaport,low,2016-03-12T00:00:00+00:00,2016-03-12T00:00:00+00:00
-f12e7a16-80bf-4f4a-bb93-c3cc1982aefd,MegaStore Ltd,Online Retail,5999,JP,East Josephville,low,2020-10-22T00:00:00+00:00,2020-10-22T00:00:00+00:00
-07863861-5e5c-4d9a-8019-49cec52e56a6,ByteStore Co,Electronics,5734,FR,West Juan,low,2016-05-12T00:00:00+00:00,2016-05-12T00:00:00+00:00
-e1a4736f-0b48-4e0b-a649-5abe81f51046,ClickWatch,Entertainment & Streaming,7994,CA,Lake Matthew,low,2021-04-08T00:00:00+00:00,2021-04-08T00:00:00+00:00
-5b2bc485-7d0f-4abf-aad4-f964ce434b81,FuelPoint,Fuel & Gas Station,5541,AU,Williamview,low,2020-08-29T00:00:00+00:00,2020-08-29T00:00:00+00:00
-d7403bb4-7d81-41ea-ac47-db7ebc9b2bf4,JackpotHub Global,Online Gambling,7995,AU,North Cynthiaview,high,2020-04-28T00:00:00+00:00,2020-04-28T00:00:00+00:00
-87908732-d668-47a5-b474-2828393384b9,AutoRenew Group,Subscription Services,7372,AE,North Matthewberg,low,2018-02-09T00:00:00+00:00,2018-02-09T00:00:00+00:00
-5c8bddc9-f40e-4452-b4e9-10af3b4a42d2,GreenBasket Global,Grocery & Supermarket,5411,US,Evanmouth,low,2018-03-16T00:00:00+00:00,2018-03-16T00:00:00+00:00
-4433f192-7d7d-4304-aae3-c529a703f549,QuickBite Co,Restaurant & Food Delivery,5812,FR,Hoffmanville,low,2015-11-27T00:00:00+00:00,2015-11-27T00:00:00+00:00
-efd63035-0dd5-46ab-8159-6ccdf07ba51f,GreenBasket Inc,Grocery & Supermarket,5411,CA,Lake Rebeccaside,low,2022-12-03T00:00:00+00:00,2022-12-03T00:00:00+00:00
+643d8fb3-dabc-495b-96e2-99ba90273bdb,PetroStop Group,Fuel & Gas Station,5541,US,North Judithbury,low,2018-01-31T00:00:00+00:00,2018-01-31T00:00:00+00:00
+0bab2483-19be-47a3-95ec-f865905cbe7b,ShopFast Direct,Online Retail,5999,US,East Jill,low,2021-02-11T00:00:00+00:00,2021-02-11T00:00:00+00:00
+0cb94e06-4d71-409e-944b-78ce0ae23304,DirectBuy Ltd,Online Retail,5999,US,New Roberttown,low,2017-08-10T00:00:00+00:00,2017-08-10T00:00:00+00:00
+c4654940-516a-4492-84f5-3303b4c46d69,ByteStore Group,Electronics,5734,AU,East Jessetown,low,2022-11-12T00:00:00+00:00,2022-11-12T00:00:00+00:00
+b5fce249-c4b6-4811-b012-7d7a4f47213b,GlobeInn Direct,Travel & Hotels,7011,IN,Lake Debra,low,2015-01-27T00:00:00+00:00,2015-01-27T00:00:00+00:00
+183d4381-fe07-4eff-acfd-4c1ad3007202,FoodRush Inc,Restaurant & Food Delivery,5812,US,Robinsonshire,low,2018-10-10T00:00:00+00:00,2018-10-10T00:00:00+00:00
+944f01e2-abea-4ac2-9d21-1b55a1a7ed43,TastyHub Ltd,Restaurant & Food Delivery,5812,IN,Lisatown,low,2018-11-09T00:00:00+00:00,2018-11-09T00:00:00+00:00
+99be065a-6d4d-4244-aca7-22343cdeb3e4,StreamBox Global,Subscription Services,7372,GB,Lake Roberto,low,2019-03-31T00:00:00+00:00,2019-03-31T00:00:00+00:00
+7f14d90d-fdb9-470d-9c1c-04982e4de9ed,TransferGo Inc,Money Transfer,4829,DE,Ericmouth,medium,2019-01-21T00:00:00+00:00,2019-01-21T00:00:00+00:00
+2d712c1f-5433-4a2d-a2fb-9cf84b54b67d,ShopFast Group,Online Retail,5999,US,North Noahstad,low,2018-03-31T00:00:00+00:00,2018-03-31T00:00:00+00:00
+4e5d7d15-fffb-4ed6-8d30-cdd98cf1e105,CoinVault Co,Cryptocurrency Exchange,6051,IN,Cassandraton,high,2020-02-01T00:00:00+00:00,2020-02-01T00:00:00+00:00
+04b33b12-5ebe-40f8-8f31-8472fdc09458,FoodRush Co,Restaurant & Food Delivery,5812,US,Herrerafurt,low,2017-12-29T00:00:00+00:00,2017-12-29T00:00:00+00:00
+111beb6a-aad0-4d71-b23c-e7e782f8c58d,ByteStore Global,Electronics,5734,US,New Kellystad,low,2020-03-08T00:00:00+00:00,2020-03-08T00:00:00+00:00
+0d8e587f-4017-4449-b9e1-c8472ce9d094,ATMPlus Online,ATM & Cash Advance,6011,CA,Lake Chad,medium,2021-03-31T00:00:00+00:00,2021-03-31T00:00:00+00:00
+31ec4b01-159a-465f-a498-646027eb7820,QuickSend Online,Money Transfer,4829,SG,Port Keith,medium,2017-07-27T00:00:00+00:00,2017-07-27T00:00:00+00:00
+f80578a6-e388-4392-8383-00443af0d696,TastyHub Group,Restaurant & Food Delivery,5812,US,Port Jesseville,low,2021-05-12T00:00:00+00:00,2021-05-12T00:00:00+00:00
+30619c1a-a36c-4527-a054-9bfa9915ffbf,WellDrug Co,Healthcare & Pharmacy,5912,IN,Ramirezstad,low,2022-03-18T00:00:00+00:00,2022-03-18T00:00:00+00:00
+1f7efd70-d191-49cb-b083-de3524ae65c2,DailyGrocer Direct,Grocery & Supermarket,5411,US,West Michael,low,2021-04-18T00:00:00+00:00,2021-04-18T00:00:00+00:00
+7aae6f8e-bfd5-476d-b818-f711f5c63a35,LuckySpins,Online Gambling,7995,IN,Jacquelineland,high,2017-06-17T00:00:00+00:00,2017-06-17T00:00:00+00:00
+dac33638-1a2e-46f1-8c99-de9ab83e6732,BuyNow Co,Online Retail,5999,US,New Jessica,low,2016-03-25T00:00:00+00:00,2016-03-25T00:00:00+00:00
+8d53b3e5-da0c-4146-9000-0e52dea627f6,MediaBox Direct,Entertainment & Streaming,7994,IN,South Noah,low,2015-09-18T00:00:00+00:00,2015-09-18T00:00:00+00:00
+71cc1c4d-349f-4242-8d04-ce6c9d8c3925,FastFuel Inc,Fuel & Gas Station,5541,GB,Lake Mark,low,2017-10-26T00:00:00+00:00,2017-10-26T00:00:00+00:00
+f0e7abbf-dd7e-4e59-b4be-9353e3697d2d,CarePharma Inc,Healthcare & Pharmacy,5912,GB,East Lydiamouth,low,2017-12-28T00:00:00+00:00,2017-12-28T00:00:00+00:00
+4d38fc24-ab7d-4bba-b650-452665bfabc6,DailyGrocer Co,Grocery & Supermarket,5411,US,Adamsborough,low,2015-01-14T00:00:00+00:00,2015-01-14T00:00:00+00:00
+3593e6af-10db-47d0-bdee-2b168869a289,DigiMart Group,Electronics,5734,US,Jasonfort,low,2022-01-05T00:00:00+00:00,2022-01-05T00:00:00+00:00
+81c9122f-a318-4eee-9f0d-0e3878a70019,DirectBuy Ltd,Online Retail,5999,SG,Wilkersonmouth,low,2021-01-18T00:00:00+00:00,2021-01-18T00:00:00+00:00
+a599708b-5b86-4d50-bbcd-d6bf8241f13e,QuikGas Global,Fuel & Gas Station,5541,GB,West Donald,low,2016-04-03T00:00:00+00:00,2016-04-03T00:00:00+00:00
+9507b6ee-0f14-49ee-bec6-f0bc70a97d15,FreshMart Inc,Grocery & Supermarket,5411,US,Juliechester,low,2021-05-12T00:00:00+00:00,2021-05-12T00:00:00+00:00
+2e8efbd4-01bd-4c1b-a012-7cccbb0ceb0e,SubHub Co,Subscription Services,7372,AE,Coxberg,low,2020-12-21T00:00:00+00:00,2020-12-21T00:00:00+00:00
+e40bfb59-150d-4b66-90d3-a05d95573254,CarePharma Direct,Healthcare & Pharmacy,5912,JP,Daviston,low,2016-11-07T00:00:00+00:00,2016-11-07T00:00:00+00:00
+657246bb-1c70-45ad-8367-7abecc8ab182,CardZone Global,Gift Cards,5969,FR,East Courtneychester,high,2022-09-26T00:00:00+00:00,2022-09-26T00:00:00+00:00
+b8e7492e-30f5-47c1-8bd0-4349c072f1c5,MealDash,Restaurant & Food Delivery,5812,CA,South Patrickmouth,low,2019-03-10T00:00:00+00:00,2019-03-10T00:00:00+00:00
+8510e02c-ad65-4688-8771-569b2a4618f9,ShopFast Group,Online Retail,5999,US,Tashatown,low,2018-10-16T00:00:00+00:00,2018-10-16T00:00:00+00:00
+4b95e041-be3e-43ad-adc7-c27263ad8568,FastFuel Group,Fuel & Gas Station,5541,US,Lake Nicoleview,low,2022-12-09T00:00:00+00:00,2022-12-09T00:00:00+00:00
+2a77ec40-8642-47ea-b415-dceea448fad9,ShopFast Group,Online Retail,5999,US,Danielchester,low,2018-09-15T00:00:00+00:00,2018-09-15T00:00:00+00:00
+ff9c7970-7b6b-475c-8e05-7e16d470aab4,GreenBasket,Grocery & Supermarket,5411,GB,South Aaron,low,2021-01-17T00:00:00+00:00,2021-01-17T00:00:00+00:00
+53b590b1-a8f5-4aac-9d25-0ec477b7a135,GreenBasket Inc,Grocery & Supermarket,5411,GB,Teresaburgh,low,2019-07-26T00:00:00+00:00,2019-07-26T00:00:00+00:00
+f1e55301-3ce4-4e50-9c96-fcbe83190d18,MegaStore,Online Retail,5999,IN,Port Colleenhaven,low,2019-10-01T00:00:00+00:00,2019-10-01T00:00:00+00:00
+66ff13dd-5604-4f88-8387-34e4e9d55e7a,CryptoX Ltd,Cryptocurrency Exchange,6051,US,East Nathaniel,high,2022-04-30T00:00:00+00:00,2022-04-30T00:00:00+00:00
+5261cfdc-3792-404e-abab-6cd5d8b36242,QuickBite Group,Restaurant & Food Delivery,5812,IN,New Stephanie,low,2016-03-23T00:00:00+00:00,2016-03-23T00:00:00+00:00
+7bf63679-9b83-43b9-8e53-1d64ff09e605,BuyNow Global,Online Retail,5999,IN,New Mariotown,low,2019-09-25T00:00:00+00:00,2019-09-25T00:00:00+00:00
+4742fcfc-3362-4554-afac-d35efe7a8c4f,SkyLodge Inc,Travel & Hotels,7011,BR,West Natashaport,low,2015-11-05T00:00:00+00:00,2015-11-05T00:00:00+00:00
+f1665cb3-11ef-4eab-badc-88c26b4c48c1,ShopFast Group,Online Retail,5999,MX,North John,low,2015-03-02T00:00:00+00:00,2015-03-02T00:00:00+00:00
+7f92f2f5-117c-47c9-b7b9-23ab9f8c8113,MegaStore Ltd,Online Retail,5999,GB,North Jessicaland,low,2017-05-25T00:00:00+00:00,2017-05-25T00:00:00+00:00
+166c25c6-09bc-4df4-9476-286e11297c6d,QuickCart,Online Retail,5999,US,East Donna,low,2019-05-19T00:00:00+00:00,2019-05-19T00:00:00+00:00
+e2664c5f-532b-4428-bfb6-f5bd206e3e41,SaveMore Co,Grocery & Supermarket,5411,CA,West Allison,low,2021-03-26T00:00:00+00:00,2021-03-26T00:00:00+00:00
+f83eef26-4229-4b73-9ce4-092fa4265a57,DirectBuy Ltd,Online Retail,5999,US,Brandtside,low,2015-08-28T00:00:00+00:00,2015-08-28T00:00:00+00:00
+c9340170-5e74-4c1d-9ce8-0f89b2385836,AutoRenew Co,Subscription Services,7372,US,Lake Larry,low,2021-07-20T00:00:00+00:00,2021-07-20T00:00:00+00:00
+ce735f6f-b081-4a14-b1c6-ee2362c807b7,ShopFast Inc,Online Retail,5999,GB,Samuelhaven,low,2017-01-31T00:00:00+00:00,2017-01-31T00:00:00+00:00
+36b26c9c-7288-4da6-93f4-12630051fa8f,HealthFirst Ltd,Healthcare & Pharmacy,5912,US,Martinezbury,low,2016-05-06T00:00:00+00:00,2016-05-06T00:00:00+00:00
+7dc83137-7692-44b6-86a5-b94f475fba06,QuikGas Global,Fuel & Gas Station,5541,IN,West Andrewside,low,2021-07-18T00:00:00+00:00,2021-07-18T00:00:00+00:00
+12f2c824-ff4e-4c47-9161-1e376ce91204,DailyGrocer Direct,Grocery & Supermarket,5411,AU,New Jeffrey,low,2017-09-04T00:00:00+00:00,2017-09-04T00:00:00+00:00
+0aeeadd2-bc59-4d1e-874e-ece7ef2e20a1,QuickCart Inc,Online Retail,5999,CA,Lake Crystalbury,low,2020-02-16T00:00:00+00:00,2020-02-16T00:00:00+00:00
+470dc293-84b9-4d4e-9675-1c76c524a030,ShopFast Inc,Online Retail,5999,DE,North Micheleland,low,2021-04-25T00:00:00+00:00,2021-04-25T00:00:00+00:00
+6cc5d2e4-9f1b-45c3-bc87-c7555a6cd8b9,DigiMart Inc,Electronics,5734,GB,West Elizabeth,low,2016-06-26T00:00:00+00:00,2016-06-26T00:00:00+00:00
+c9681f03-1889-42b8-b66f-1f461f414f2b,ChainTrade Global,Cryptocurrency Exchange,6051,IN,New David,high,2016-10-08T00:00:00+00:00,2016-10-08T00:00:00+00:00
+d704ea12-484a-4969-affd-fd9ca0475600,FastFuel Global,Fuel & Gas Station,5541,ZA,Sanchezfort,low,2022-05-02T00:00:00+00:00,2022-05-02T00:00:00+00:00
+4a9c2427-adbf-4815-8409-c0499fa6a574,LuxeMart Inc,Luxury Goods,5944,US,Leeville,medium,2016-07-04T00:00:00+00:00,2016-07-04T00:00:00+00:00
+2061efe2-7f89-443d-99c5-a274b2d99b2a,CoinVault Global,Cryptocurrency Exchange,6051,AU,Gomezchester,high,2016-09-28T00:00:00+00:00,2016-09-28T00:00:00+00:00
+9183d88c-bacf-4695-a108-abbd95e94080,QuikGas,Fuel & Gas Station,5541,AU,Shieldston,low,2017-04-13T00:00:00+00:00,2017-04-13T00:00:00+00:00
+7fe56b15-1b38-45b1-ba21-ab21c9098966,FreshMart Direct,Grocery & Supermarket,5411,FR,North Richardmouth,low,2015-07-28T00:00:00+00:00,2015-07-28T00:00:00+00:00
+97e8fdf8-4967-48fa-bca7-5578e5a25509,TransferGo Global,Money Transfer,4829,US,East Jamesside,medium,2018-09-28T00:00:00+00:00,2018-09-28T00:00:00+00:00
+2f844056-2555-43e3-a7f8-38f606bfece5,MegaStore Ltd,Online Retail,5999,IN,Taylorburgh,low,2022-11-30T00:00:00+00:00,2022-11-30T00:00:00+00:00
+aa92a0a8-a174-4d30-82cc-3f582e753d9d,BuyNow Ltd,Online Retail,5999,JP,Stevenland,low,2022-10-01T00:00:00+00:00,2022-10-01T00:00:00+00:00
+a3ffbc1d-b0c5-4a54-9924-79e5677a0bb2,SwiftPay Co,Money Transfer,4829,DE,Mortonside,medium,2016-08-29T00:00:00+00:00,2016-08-29T00:00:00+00:00
+17151988-ef6a-4c0d-955a-8e95bf6415bc,QuickCart Group,Online Retail,5999,IN,North Deniseside,low,2015-06-13T00:00:00+00:00,2015-06-13T00:00:00+00:00
+149efa6e-04b3-4198-b9fd-b101f569392f,WellDrug Co,Healthcare & Pharmacy,5912,CA,North Sarabury,low,2018-12-19T00:00:00+00:00,2018-12-19T00:00:00+00:00
+2228552d-7a60-4dd1-9102-775c43db5639,EliteGoods Direct,Luxury Goods,5944,US,South Todd,medium,2016-10-27T00:00:00+00:00,2016-10-27T00:00:00+00:00
+af40b588-45a2-4fa8-8571-9315e36de6f4,MegaStore Group,Online Retail,5999,AU,Port Richard,low,2018-09-22T00:00:00+00:00,2018-09-22T00:00:00+00:00
+f8dacc76-6b1e-4c22-bdf8-8a45688af0ec,SaveMore Ltd,Grocery & Supermarket,5411,SG,East Nicholasfurt,low,2016-03-18T00:00:00+00:00,2016-03-18T00:00:00+00:00
+38848a62-cc28-4a83-a41b-9c198cda5110,MoneyBridge Global,Money Transfer,4829,US,Saramouth,medium,2020-02-29T00:00:00+00:00,2020-02-29T00:00:00+00:00
+c6679604-6fef-494e-812c-af6b952e055d,QuickSend Group,Money Transfer,4829,BR,Rodneyside,medium,2017-07-02T00:00:00+00:00,2017-07-02T00:00:00+00:00
+6da17676-1932-4c8e-a4c6-47a48f1f157c,TastyHub Online,Restaurant & Food Delivery,5812,IN,Mooreport,low,2015-10-12T00:00:00+00:00,2015-10-12T00:00:00+00:00
+606a3f76-0cc7-4f4c-a93d-cb5f62245ad2,QuikGas Ltd,Fuel & Gas Station,5541,IN,North Beth,low,2021-01-05T00:00:00+00:00,2021-01-05T00:00:00+00:00
+9ed3180c-7827-4d9c-831c-d3ba21ad75b7,DirectBuy Global,Online Retail,5999,NG,Lake Leeton,low,2017-01-01T00:00:00+00:00,2017-01-01T00:00:00+00:00
+2a84ff25-61bc-40c4-b2a8-ea48738e1d40,QuickCart Direct,Online Retail,5999,DE,Shawhaven,low,2018-11-16T00:00:00+00:00,2018-11-16T00:00:00+00:00
+3b408cc9-ebde-46eb-ae7b-b0756ce1405c,PetroStop Global,Fuel & Gas Station,5541,GB,North Susan,low,2019-04-27T00:00:00+00:00,2019-04-27T00:00:00+00:00
+7e780b83-a8b5-4f08-906e-89c082c00943,DirectBuy Group,Online Retail,5999,IN,Port Jacobland,low,2020-10-30T00:00:00+00:00,2020-10-30T00:00:00+00:00
+6cb0ba1c-9196-4a43-b701-9953470fd222,TastyHub Online,Restaurant & Food Delivery,5812,US,South David,low,2022-06-13T00:00:00+00:00,2022-06-13T00:00:00+00:00
+41aadf70-9760-4f96-9f99-2a72053c4ffb,CarePharma Direct,Healthcare & Pharmacy,5912,US,New Brooke,low,2018-05-15T00:00:00+00:00,2018-05-15T00:00:00+00:00
+6824dae0-ac20-465e-8f46-c6dc590d25af,QuickBite Group,Restaurant & Food Delivery,5812,CA,South Dianeshire,low,2021-03-20T00:00:00+00:00,2021-03-20T00:00:00+00:00
+0af8eb8f-e082-43f0-8a72-f14340b92d9f,GlobeInn Global,Travel & Hotels,7011,JP,Sarahborough,low,2022-08-06T00:00:00+00:00,2022-08-06T00:00:00+00:00
+0b436416-f271-4a17-8c23-894bd1ef6834,TastyHub Group,Restaurant & Food Delivery,5812,AE,Johnfurt,low,2018-05-29T00:00:00+00:00,2018-05-29T00:00:00+00:00
+14bab5c2-77fa-4c90-ac1f-73f48f4fecc3,TripNest,Travel & Hotels,7011,DE,Lake Debbie,low,2022-05-05T00:00:00+00:00,2022-05-05T00:00:00+00:00
+6120fa9d-bd97-4b25-8674-169372baaf7d,SkyLodge Co,Travel & Hotels,7011,CA,Stewartland,low,2020-09-24T00:00:00+00:00,2020-09-24T00:00:00+00:00
+b4e69ab0-80ca-4885-a805-6a619bddd9af,CarePharma Inc,Healthcare & Pharmacy,5912,IN,South Christineshire,low,2022-06-12T00:00:00+00:00,2022-06-12T00:00:00+00:00
+bbe769a6-5c48-42d9-90f3-5dc580138ce5,ClickWatch Group,Entertainment & Streaming,7994,AU,North Amandahaven,low,2022-07-18T00:00:00+00:00,2022-07-18T00:00:00+00:00
+bf364bdc-79e1-45ef-8780-e5f5ecc5e716,StreamNow,Entertainment & Streaming,7994,US,Davidstad,low,2015-07-09T00:00:00+00:00,2015-07-09T00:00:00+00:00
+cd83721e-256f-41bb-ae77-ca6cad74ac77,FuelPoint Group,Fuel & Gas Station,5541,SG,East Mikeburgh,low,2020-02-09T00:00:00+00:00,2020-02-09T00:00:00+00:00
+3067fccc-1b5c-45ef-a121-22ceda1e1cb3,SubHub Co,Subscription Services,7372,IN,Bassport,low,2019-06-25T00:00:00+00:00,2019-06-25T00:00:00+00:00
+e76ab04d-9bea-4f5f-8af0-82dc9262cbc9,WellDrug Group,Healthcare & Pharmacy,5912,US,Lake Lisaport,low,2016-03-12T00:00:00+00:00,2016-03-12T00:00:00+00:00
+a2dba6f5-82d9-43f0-829f-d045ea38423c,MegaStore Ltd,Online Retail,5999,JP,East Josephville,low,2020-10-22T00:00:00+00:00,2020-10-22T00:00:00+00:00
+7038e9d5-551a-40c0-98f5-c04b36a0ad4c,ByteStore Co,Electronics,5734,FR,West Juan,low,2016-05-12T00:00:00+00:00,2016-05-12T00:00:00+00:00
+a805dd70-1794-4b9f-ae15-f62d0c7ff555,ClickWatch,Entertainment & Streaming,7994,CA,Lake Matthew,low,2021-04-08T00:00:00+00:00,2021-04-08T00:00:00+00:00
+8cc83ca9-4ca1-47d6-9565-7b028bdb9a45,FuelPoint,Fuel & Gas Station,5541,AU,Williamview,low,2020-08-29T00:00:00+00:00,2020-08-29T00:00:00+00:00
+8a162a00-31ff-4220-8ad5-635bc24ae00e,JackpotHub Global,Online Gambling,7995,AU,North Cynthiaview,high,2020-04-28T00:00:00+00:00,2020-04-28T00:00:00+00:00
+01b1b6dd-311e-4de4-bbdc-52fea1cca26f,AutoRenew Group,Subscription Services,7372,AE,North Matthewberg,low,2018-02-09T00:00:00+00:00,2018-02-09T00:00:00+00:00
+fd119eb9-c9d2-4ac5-9f5d-4da718fbd104,GreenBasket Global,Grocery & Supermarket,5411,US,Evanmouth,low,2018-03-16T00:00:00+00:00,2018-03-16T00:00:00+00:00
+7e0d3b07-dbd2-4649-9ecf-6b1e7206e743,QuickBite Co,Restaurant & Food Delivery,5812,FR,Hoffmanville,low,2015-11-27T00:00:00+00:00,2015-11-27T00:00:00+00:00
+33c84f8e-8f03-45f2-9d77-26d1e0b7029c,GreenBasket Inc,Grocery & Supermarket,5411,CA,Lake Rebeccaside,low,2022-12-03T00:00:00+00:00,2022-12-03T00:00:00+00:00

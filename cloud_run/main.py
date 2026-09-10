@@ -10,7 +10,7 @@ from .models import TransactionEvent
 
 load_dotenv()
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("ingestion-api")
 
 app = FastAPI(title="Financial Risk Ingestion API", version="1.0.0")

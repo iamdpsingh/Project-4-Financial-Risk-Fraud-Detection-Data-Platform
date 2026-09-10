@@ -24,7 +24,7 @@ def get_bq_client():
     return bigquery.Client()
 
 PROJECT_ID = os.getenv("GCP_PROJECT_ID", "financial-data-platform-508216")
-DATASET = "financial_risk_analytics"  # The standard analytics dataset
+DATASET = os.getenv("BQ_DATASET_ANALYTICS", "analytics")
 
 # Custom CSS for styling
 st.markdown("""
