@@ -130,3 +130,36 @@ resource "google_bigquery_table" "transaction_risk" {
 ]
 EOF
 }
+
+# Dead-Letter Queue for failed transactions
+resource "google_bigquery_table" "transactions_dlq" {
+  dataset_id          = google_bigquery_dataset.analytics.dataset_id
+  table_id            = "transactions_dlq"
+  project             = var.project_id
+  deletion_protection = false
+
+  time_partitioning {
+    type  = "DAY"
+    field = "timestamp"
+  }
+
+  schema = <<SCHEMA
+[
+  {
+    "name": "raw_record",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "error_type",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED"
+  }
+]
+SCHEMA
+}

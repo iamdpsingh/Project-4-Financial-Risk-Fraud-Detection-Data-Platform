@@ -107,17 +107,48 @@ def run_pipeline(argv=None):
             # When streaming locally to text files, Beam needs windowing, 
             # but for debugging we can just print it.
             final_records | "PrintToConsole" >> beam.Map(lambda x: log.info(f"SCORED TXN: {x}"))
+            invalid_records | "LogInvalid" >> beam.Map(lambda x: log.error(f"INVALID MESSAGE: {x}"))
+            scoring_errors | "LogScoringError" >> beam.Map(lambda x: log.error(f"SCORING ERROR: {x}"))
         else:
             table_spec = f"{project}:{dataset}.transaction_risk"
+            dlq_spec = f"{project}:{dataset}.transactions_dlq"
+            
             final_records | "WriteToBQ" >> beam.io.WriteToBigQuery(
                 table=table_spec,
                 create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
                 write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
             )
             
-        # Log DLQ items
-        invalid_records | "LogInvalid" >> beam.Map(lambda x: log.error(f"INVALID MESSAGE: {x}"))
-        scoring_errors | "LogScoringError" >> beam.Map(lambda x: log.error(f"SCORING ERROR: {x}"))
+            # Format DLQ records
+            def format_dlq(record, error_type):
+                import json
+                from datetime import datetime
+                return {
+                    "raw_record": json.dumps(record) if isinstance(record, dict) else str(record),
+                    "error_type": error_type,
+                    "timestamp": datetime.utcnow().isoformat()
+                }
+
+            # Write DLQ items to BigQuery
+            (
+                invalid_records 
+                | "FormatInvalidDLQ" >> beam.Map(lambda x: format_dlq(x, "JSON_PARSE_ERROR"))
+                | "WriteInvalidToDLQ" >> beam.io.WriteToBigQuery(
+                    table=dlq_spec,
+                    create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+                    write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
+                )
+            )
+            
+            (
+                scoring_errors 
+                | "FormatScoringDLQ" >> beam.Map(lambda x: format_dlq(x, "SCORING_ERROR"))
+                | "WriteScoringToDLQ" >> beam.io.WriteToBigQuery(
+                    table=dlq_spec,
+                    create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+                    write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
+                )
+            )
 
 if __name__ == "__main__":
     logging.getLogger().setLevel(logging.INFO)

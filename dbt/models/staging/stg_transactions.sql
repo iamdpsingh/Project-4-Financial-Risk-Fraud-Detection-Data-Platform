@@ -1,23 +1,22 @@
--- Staging model for raw transactions
+{{ config(materialized='view') }}
 
-WITH raw_transactions AS (
-    SELECT *
-    FROM `{{ var('project_id', 'YOUR_GCP_PROJECT_ID') }}.staging.transactions`
+with source as (
+    select * from {{ source('financial_risk_analytics', 'transaction_risk') }}
+),
+renamed as (
+    select
+        transaction_id,
+        customer_id,
+        account_id,
+        merchant_id,
+        device_id,
+        amount,
+        timestamp as transaction_timestamp,
+        type as transaction_type,
+        location as transaction_location,
+        is_fraud as actual_is_fraud,
+        risk_score as streaming_risk_score,
+        risk_level as streaming_risk_level
+    from source
 )
-
-SELECT
-    transaction_id,
-    customer_id,
-    account_id,
-    merchant_id,
-    device_id,
-    CAST(transaction_timestamp AS TIMESTAMP) AS transaction_timestamp,
-    CAST(amount AS FLOAT64) AS amount_local,
-    currency,
-    CAST(amount_usd AS FLOAT64) AS amount_usd,
-    transaction_type,
-    country,
-    payment_method,
-    status,
-    is_international
-FROM raw_transactions
+select * from renamed

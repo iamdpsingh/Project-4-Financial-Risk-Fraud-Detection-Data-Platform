@@ -39,17 +39,27 @@ def check_transactions(data_dir: Path):
     suite = context.suites.add(gx.ExpectationSuite(name="transactions_suite"))
     
     # Add some basic expectations
+    # Add comprehensive expectations for Phase 11
     suite.add_expectation(
         gx.expectations.ExpectColumnValuesToNotBeNull(column="transaction_id")
     )
     suite.add_expectation(
-        gx.expectations.ExpectColumnValuesToBeBetween(column="amount", min_value=0)
+        gx.expectations.ExpectColumnValuesToBeUnique(column="transaction_id")
+    )
+    suite.add_expectation(
+        gx.expectations.ExpectColumnValuesToNotBeNull(column="customer_id")
+    )
+    suite.add_expectation(
+        gx.expectations.ExpectColumnValuesToBeBetween(column="amount", min_value=0.01, max_value=1000000.0)
     )
     suite.add_expectation(
         gx.expectations.ExpectColumnValuesToBeInSet(
-            column="status", 
-            value_set=["completed", "failed", "pending", "reversed", "flagged"]
+            column="transaction_type", 
+            value_set=["online", "pos", "atm", "wire"]
         )
+    )
+    suite.add_expectation(
+        gx.expectations.ExpectColumnValuesToNotBeNull(column="transaction_timestamp")
     )
     
     # Validate
