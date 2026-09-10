@@ -295,19 +295,23 @@ terraform init
 terraform apply -var="project_id=your-gcp-project-id"
 ```
 
-#### 2. Build and Deploy the Ingestion API
+#### 2. Build and Deploy the Ingestion API (No local Docker needed)
 ```bash
-gcloud auth configure-docker <region>-docker.pkg.dev
-docker build -t <image-tag> -f cloud_run/Dockerfile .
-docker push <image-tag>
-gcloud run deploy transaction-ingestion-api --image=<image-tag> --region=<region>
+# Build the image completely on Google Cloud
+gcloud builds submit --tag us-central1-docker.pkg.dev/your-gcp-project-id/fraud-repo/transaction-ingestion-api:latest -f cloud_run/Dockerfile .
+
+# Deploy the built image to Cloud Run
+gcloud run deploy transaction-ingestion-api \
+  --image=us-central1-docker.pkg.dev/your-gcp-project-id/fraud-repo/transaction-ingestion-api:latest \
+  --region=us-central1 \
+  --allow-unauthenticated
 ```
 
 #### 3. Upload Historical Data and Run Dataflow Pipelines
 ```bash
-PYTHONPATH=. python ingestion/batch/upload.py            # push extracted CSVs to the GCS raw bucket
-PYTHONPATH=. python pipelines/batch/run_dataflow.py      # submit the batch job to Dataflow
-PYTHONPATH=. python pipelines/streaming/run_dataflow.py  # submit the (long-running) streaming job to Dataflow
+PYTHONPATH=. python ingestion/batch/upload.py --source data/raw  # push generated CSVs to GCS
+PYTHONPATH=. python pipelines/batch/run_dataflow.py              # submit the batch job
+PYTHONPATH=. python pipelines/streaming/run_dataflow.py          # submit the streaming job
 ```
 
 #### 4. Model the Warehouse with dbt
