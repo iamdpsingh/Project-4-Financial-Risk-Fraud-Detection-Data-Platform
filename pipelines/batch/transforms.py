@@ -4,6 +4,7 @@ Apache Beam DoFn classes and transformations for the batch pipeline.
 
 import logging
 from typing import Any
+import typing
 
 import apache_beam as beam
 
@@ -14,20 +15,21 @@ class ParseCSVLine(beam.DoFn):
     def __init__(self, headers: list[str]):
         self.headers = headers
 
-    def process(self, element: str) -> list[dict[str, Any]]:
+    def process(self, element: str) -> "typing.Iterator[dict[str, Any]]":
+        import typing
         import csv
         from io import StringIO
         
         # Skip header lines
         if element.startswith(self.headers[0]):
-            return []
+            return
 
         try:
             reader = csv.reader(StringIO(element))
             row = next(reader)
             
             # Map row to headers
-            record = dict(zip(self.headers, row, strict=False))
+            record: dict[str, Any] = dict(zip(self.headers, row, strict=False))
             
             # Clean up empty strings to None/null for BigQuery
             for k, v in record.items():

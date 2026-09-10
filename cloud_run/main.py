@@ -4,7 +4,7 @@ import os
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, status
-from google.cloud import pubsub_v1
+from google.cloud import pubsub_v1  # type: ignore
 
 from .models import TransactionEvent
 

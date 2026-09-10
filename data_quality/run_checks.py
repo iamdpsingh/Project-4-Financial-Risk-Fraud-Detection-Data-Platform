@@ -82,7 +82,7 @@ def check_transactions(data_dir: Path):
         log.error("❌ Transactions data quality checks FAILED")
         for res in results.results:
             if not res.success:
-                log.error(f"  Failed expectation: {res.expectation_config.type}")
+                log.error(f"  Failed expectation: {getattr(res.expectation_config, "type", "Unknown") if res.expectation_config else "Unknown"}")
                 log.error(f"  Result details: {res.result}")
 
 def main():

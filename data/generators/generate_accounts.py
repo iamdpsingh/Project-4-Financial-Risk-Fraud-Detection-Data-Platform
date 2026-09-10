@@ -18,6 +18,7 @@ import argparse
 import csv
 import logging
 import random
+from typing import Any
 import uuid
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -78,7 +79,7 @@ def generate_accounts(
     financial institution.
     """
     rng = random.Random(seed)
-    accounts = []
+    accounts: list[dict[str, Any]] = []
     base_time = datetime(2018, 1, 1, tzinfo=UTC)
 
     # Shuffle customer IDs so the assignment of "how many accounts" is random.

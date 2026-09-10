@@ -15,8 +15,8 @@ def evaluate_high_amount(transaction: dict[str, Any], customer_avg_30d: float) -
     amount_usd = transaction.get("amount_usd", 0)
     # If we don't have a baseline, we use a sensible default check
     if customer_avg_30d <= 0:
-        return amount_usd > 1000
-    return amount_usd > (3 * customer_avg_30d)
+        return bool(amount_usd > 1000)
+    return bool(amount_usd > (3 * customer_avg_30d))
 
 def evaluate_new_device(transaction: dict[str, Any]) -> bool:
     """
@@ -26,7 +26,7 @@ def evaluate_new_device(transaction: dict[str, Any]) -> bool:
     """
     # For simulation, we assume this info is enriched into the event,
     # or we mock it based on a flag.
-    return transaction.get("is_new_device", False)
+    return bool(transaction.get("is_new_device", False))
 
 def evaluate_geo_anomaly(transaction: dict[str, Any]) -> bool:
     """True if transaction country does not match customer's home country."""
@@ -43,7 +43,7 @@ def evaluate_repeated_failures(transaction: dict[str, Any], failure_count_1h: in
 
 def evaluate_high_risk_merchant(transaction: dict[str, Any]) -> bool:
     """True if merchant is flagged as high-risk by compliance."""
-    return transaction.get("merchant_risk_category", "low").lower() == "high"
+    return bool(transaction.get("merchant_risk_category", "low").lower() == "high")
 
 def evaluate_off_hours(transaction: dict[str, Any]) -> bool:
     """True if transaction happened between midnight and 5am local time."""

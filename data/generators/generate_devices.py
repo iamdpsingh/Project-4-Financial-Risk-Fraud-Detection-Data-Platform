@@ -19,6 +19,7 @@ import argparse
 import csv
 import logging
 import random
+from typing import Any
 import uuid
 from datetime import UTC, datetime, timedelta
 from ipaddress import IPv4Address
@@ -79,7 +80,7 @@ def generate_devices(
     fake = Faker()
     Faker.seed(seed)
 
-    devices = []
+    devices: list[dict[str, Any]] = []
     now = datetime.now(UTC)
     base_time = datetime(2019, 1, 1, tzinfo=UTC)
 

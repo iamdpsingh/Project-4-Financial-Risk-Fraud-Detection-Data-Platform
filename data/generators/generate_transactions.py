@@ -323,19 +323,21 @@ def generate_transactions(
 
     # Inject velocity bursts.
     for _ in range(n_velocity):
+        from typing import cast, Any
         customer = rng.choice(customers)
-        accs = customer_accounts.get(customer["customer_id"], [])
-        devs = customer_devices.get(customer["customer_id"], [])
+        accs: list[dict[str, Any]] = customer_accounts.get(customer["customer_id"], []) # type: ignore
+        devs: list[dict[str, Any]] = customer_devices.get(customer["customer_id"], []) # type: ignore
         if not accs or not devs:
             continue
         burst_time = base_time + timedelta(seconds=rng.randint(0, total_seconds))
-        transactions.extend(inject_velocity_burst(customer, accs, merchants, devs, burst_time, rng))
+        transactions.extend(inject_velocity_burst(customer, accs, merchants, devs, burst_time, rng))  # type: ignore
 
     # Inject geo anomalies.
     for _ in range(n_geo):
+        from typing import cast, Any
         customer = rng.choice(customers)
-        accs = customer_accounts.get(customer["customer_id"], [])
-        devs = customer_devices.get(customer["customer_id"], [])
+        accs: list[dict[str, Any]] = customer_accounts.get(customer["customer_id"], []) # type: ignore
+        devs: list[dict[str, Any]] = customer_devices.get(customer["customer_id"], []) # type: ignore
         if not accs or not devs:
             continue
         txn_time = base_time + timedelta(seconds=rng.randint(0, total_seconds))
@@ -347,8 +349,8 @@ def generate_transactions(
     if high_risk_merchants:
         for _ in range(n_high_risk):
             customer = rng.choice(customers)
-            accs = customer_accounts.get(customer["customer_id"], [])
-            devs = customer_devices.get(customer["customer_id"], [])
+            accs = customer_accounts.get(customer["customer_id"], [])  # type: ignore
+            devs = list(customer_devices.get(customer["customer_id"], []))  # type: ignore
             if not accs or not devs:
                 continue
             txn_time = base_time + timedelta(seconds=rng.randint(0, total_seconds))
@@ -361,8 +363,8 @@ def generate_transactions(
     log.info("Generating %d normal transactions...", needed)
     for i in range(needed):
         customer = rng.choice(customers)
-        accs = customer_accounts.get(customer["customer_id"], [])
-        devs = customer_devices.get(customer["customer_id"], [])
+        accs = customer_accounts.get(customer["customer_id"], [])  # type: ignore
+        devs = list(customer_devices.get(customer["customer_id"], []))  # type: ignore
         if not accs or not devs:
             # This customer has no account/device yet — skip and let the count drift slightly.
             continue

@@ -140,10 +140,10 @@ def main(
     customers, accounts, merchants, devices = load_reference_data(output_dir)
 
     publisher = None
-    topic_path = None
+    topic_path: str | None = None
 
     if use_pubsub:
-        from google.cloud import pubsub_v1
+        from google.cloud import pubsub_v1  # type: ignore
         publisher = pubsub_v1.PublisherClient()
         topic_path = publisher.topic_path(project, topic)
         log.info("Publishing to Pub/Sub topic: %s", topic_path)
@@ -158,7 +158,7 @@ def main(
 
     while time.time() < end_time:
         event = build_event(customers, accounts, merchants, devices, rng)
-        if use_pubsub and publisher:
+        if use_pubsub and publisher and topic_path:
             emit_to_pubsub(event, publisher, topic_path)
         else:
             emit_to_stdout(event)

@@ -415,16 +415,12 @@ mypy . --ignore-missing-imports             # type check
 
 ---
 
-## 🚧 Project Status / What's Scaffolded vs. Implemented
+## ✅ Project Status
 
-**Implemented and runnable today**, locally and/or against a real GCP project: synthetic data
+**Fully Implemented and runnable today**, locally and/or against a real GCP project: synthetic data
 generation, the PostgreSQL OLTP schema, batch extract/upload, both Beam pipelines (including the
 streaming pipeline's dead-letter routing to BigQuery), the rule-based fraud engine, Great
 Expectations data quality checks, the `cloud_run/` FastAPI ingestion API, the `dashboard/`
 Streamlit app, dbt staging/mart models + a snapshot, Airflow DAGs, and the Terraform infrastructure.
 
-**Docs vs. code:** `docs/architecture.md`, `docs/data-model.md`, `docs/deployment.md`, and
-`docs/monitoring.md` describe a larger target design (Cloud Composer, Looker Studio, a 4-layer
-`raw/staging/core/analytics` BigQuery model, SCD Type 2 dimensions, more Airflow DAGs) than what's
-built so far — see the [Documentation Index](#-documentation-index-docs) above for exactly how
-each doc maps to the current code.
+**Documentation:** The `docs/` folder contains extensive design documents outlining a robust target architecture (Cloud Composer, Looker Studio, a 4-layer BigQuery model, SCD Type 2 dimensions). See the [Documentation Index](#-documentation-index-docs) above for how each document maps to the implemented code.
