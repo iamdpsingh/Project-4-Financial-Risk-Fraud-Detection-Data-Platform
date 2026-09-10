@@ -225,49 +225,111 @@ this table to see how each doc maps to what actually exists in the repo today:
 
 ---
 
-## 🚀 Execution Guide (GCP Production)
+## 🚀 Execution Guide
 
-This platform is configured to run end-to-end on Google Cloud Platform, processing up to 2.5 Million synthetic transactions.
+This platform runs entirely on your laptop using simulated services, or fully deployed to GCP.
 
-### 1. Generate Raw Data (2.5 Million Records)
-Generate the massive synthetic datasets locally before shipping them to GCP:
+### 💻 Option 1: Local Development (DirectRunner)
+
+#### 1. Setup Environment
 ```bash
+git clone https://github.com/iamdpsingh/Project-4-Financial-Risk-Fraud-Detection-Data-Platform.git
+cd Project-4-Financial-Risk-Fraud-Detection-Data-Platform
+python3 -m venv .venv
 source .venv/bin/activate
-PYTHONPATH=. python data/generators/generate_all.py --skip-postgres
-```
-*Note: Logs will be automatically generated in the `logs/` directory.*
-
-### 2. Upload Batch Data to Cloud Storage
-Push the generated CSVs directly into your GCS raw data bucket:
-```bash
-PYTHONPATH=. python ingestion/batch/upload.py --source data/raw
+pip install -r requirements.txt && pip install -e .
+cp .env.example .env
 ```
 
-### 3. Start the Live Streaming Generator
-Simulate thousands of live transaction events continuously hitting your GCP Pub/Sub topic:
+#### 2. Start Services & Generate Data
+*Requires Docker Desktop running.*
 ```bash
+docker compose up -d
+docker exec -i frp_postgres psql -U fraud_user -d financial_risk < infrastructure/postgres/init.sql
+PYTHONPATH=. python data/generators/generate_all.py
+```
+
+#### 3. Run Data Quality Checks (Optional)
+```bash
+PYTHONPATH=. python data_quality/run_checks.py
+```
+
+#### 4. Run Pipelines Locally
+**Batch Pipeline:**
+```bash
+PYTHONPATH=. python ingestion/batch/extract.py --output data/raw
+PYTHONPATH=. python pipelines/batch/pipeline.py --runner=DirectRunner --input_dir=data/raw --output_local
+```
+
+**Streaming Pipeline (2 terminal windows):**
+```bash
+# Terminal 1: Stream transactions to Pub/Sub
+source .venv/bin/activate
 PYTHONPATH=. python data/generators/generate_streaming.py --pubsub
+
+# Terminal 2: Process the stream through Apache Beam
+source .venv/bin/activate
+PYTHONPATH=. python pipelines/streaming/pipeline.py --runner=DirectRunner
 ```
 
-### 4. Execute Dataflow Pipelines
-Spin up autoscaling Apache Beam workers on Google Cloud Dataflow to process the data:
+#### 5. Run Tests
 ```bash
-# Process historical batch data
-PYTHONPATH=. python pipelines/batch/run_dataflow.py
-
-# Process live streaming data (Long-running)
-PYTHONPATH=. python pipelines/streaming/run_dataflow.py
+pytest tests/unit/ -v --cov=. --cov-report=term-missing
 ```
 
-### 5. Launch the Executive Dashboard
-Monitor the real-time processing, risk distribution, and critical threats:
+#### 6. (Optional) Run the Cloud Run API and Dashboard locally
 ```bash
+uvicorn cloud_run.main:app --reload --port 8080
 streamlit run dashboard/app.py
 ```
 
 ---
 
-*Note: To model the warehouse with dbt or orchestrate with Airflow, refer to the detailed `docs/deployment.md`.*
+### ☁️ Option 2: Production on Google Cloud Platform
+
+#### 1. Provision Infrastructure
+```bash
+gcloud auth application-default login
+cd infrastructure/terraform
+terraform init
+terraform apply -var="project_id=your-gcp-project-id"
+```
+
+#### 2. Build and Deploy the Ingestion API
+```bash
+gcloud auth configure-docker <region>-docker.pkg.dev
+docker build -t <image-tag> -f cloud_run/Dockerfile .
+docker push <image-tag>
+gcloud run deploy transaction-ingestion-api --image=<image-tag> --region=<region>
+```
+
+#### 3. Upload Historical Data and Run Dataflow Pipelines
+```bash
+PYTHONPATH=. python ingestion/batch/upload.py            # push extracted CSVs to the GCS raw bucket
+PYTHONPATH=. python pipelines/batch/run_dataflow.py      # submit the batch job to Dataflow
+PYTHONPATH=. python pipelines/streaming/run_dataflow.py  # submit the (long-running) streaming job to Dataflow
+```
+
+#### 4. Model the Warehouse with dbt
+```bash
+pip install dbt-bigquery
+cd dbt
+dbt run --vars '{"project_id": "your-gcp-project-id"}'
+dbt snapshot --vars '{"project_id": "your-gcp-project-id"}'
+```
+
+#### 5. Airflow Orchestration
+```bash
+export AIRFLOW_HOME=$(pwd)/airflow
+export PROJECT_ROOT=$(pwd)
+export VENV_PYTHON=$(pwd)/.venv/bin/python
+airflow db init
+airflow standalone
+```
+
+#### 6. Deploy the Dashboard
+```bash
+streamlit run dashboard/app.py
 ```
 
 ---
