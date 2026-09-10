@@ -65,6 +65,7 @@ def run_pipeline(argv=None):
             input_pattern = f"{input_dir}/{folder}/*.csv"
             
             # 1. Read CSV lines
+            log.info(f"Setting up ReadFromText for {table} from {input_pattern}")
             lines = p | f"Read_{table}" >> beam.io.ReadFromText(input_pattern)
             
             # 2. Parse CSV

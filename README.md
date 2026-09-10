@@ -74,6 +74,8 @@ pip install -e .  # Installs the local package
 
 ### 2. Start Local Infrastructure
 
+> **Note:** You must have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running to use the local database and Pub/Sub emulator.
+
 Start the local PostgreSQL database and Pub/Sub emulator:
 ```bash
 docker-compose up -d
@@ -102,8 +104,8 @@ Process data through Apache Beam (Local):
 ```bash
 python pipelines/batch/pipeline.py \
   --runner=DirectRunner \
-  --input_dir=data/raw/transactions \
-  --dataset=local_staging
+  --input_dir=data/raw \
+  --output_local
 ```
 
 ### 5. Run Streaming Pipeline (DirectRunner)
@@ -111,7 +113,7 @@ python pipelines/batch/pipeline.py \
 Start the streaming generator in one terminal window:
 ```bash
 source .venv/bin/activate
-python data/generators/generate_streaming.py --publish
+python data/generators/generate_streaming.py --pubsub
 ```
 
 In another terminal, start the streaming processor:
