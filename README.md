@@ -109,6 +109,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt && pip install -e .
 ```
+**Why do we do this?** We use a Python virtual environment (`.venv`) to isolate our project's dependencies from your system's global Python. This ensures that the exact versions of Apache Beam, Airflow, and Pandas we need don't conflict with other projects on your Mac.
 
 #### 2. Start Services & Generate Data
 *Requires Docker Desktop.*
@@ -120,6 +121,7 @@ docker-compose up -d
 docker exec -i postgres_db psql -U admin -d financial_risk < infrastructure/postgres/init.sql
 python data/generators/generate_all.py
 ```
+**Why do we do this?** A real data platform needs data sources to read from. `docker-compose up -d` starts a local PostgreSQL database (to act as our source of truth for historical data) and a Pub/Sub emulator (to act as our message broker for live streams). The `generate_all.py` script then fills the database with thousands of realistic, synthetic customers and transactions so we have data to process.
 
 #### 3. Run Pipelines Locally
 **Batch Pipeline:**
@@ -127,15 +129,19 @@ python data/generators/generate_all.py
 python ingestion/batch/extract.py --output data/raw
 python pipelines/batch/pipeline.py --runner=DirectRunner --input_dir=data/raw --output_local
 ```
+**Why do we do this?** In a batch architecture, data is processed in chunks. First, `extract.py` simulates a nightly job pulling the latest records from the Postgres database and saving them as CSVs. Then, the batch `pipeline.py` uses Apache Beam's `DirectRunner` (a local execution engine) to parse the CSVs, validate the data types, and prepare it for analytics.
 
 **Streaming Pipeline (Requires 2 terminal windows):**
 ```bash
 # Terminal 1: Stream transactions to Pub/Sub
+source .venv/bin/activate
 python data/generators/generate_streaming.py --pubsub
 
 # Terminal 2: Process the stream through Apache Beam
+source .venv/bin/activate
 python pipelines/streaming/pipeline.py --runner=DirectRunner
 ```
+**Why do we do this?** Streaming architecture handles data continuously. Terminal 1 runs a script that acts like a live API, firing hundreds of transactions per second into our Pub/Sub broker. Terminal 2 runs the Apache Beam streaming pipeline which instantly consumes those messages, applies the fraud scoring rules, and flags suspicious transactions in real time.
 
 ---
 
@@ -151,6 +157,7 @@ cd infrastructure/terraform
 terraform init
 terraform apply -auto-approve
 ```
+**Why do we do this?** Instead of clicking around the GCP Console manually, we use Terraform (Infrastructure as Code) to automatically and predictably create our Cloud Storage buckets, BigQuery datasets, and Service Accounts exactly as they are configured in the code.
 
 #### 2. Run Dataflow Pipelines
 Instead of running locally, submit the jobs to Google Cloud Dataflow:
@@ -161,6 +168,7 @@ python pipelines/batch/run_dataflow.py
 # Submit Streaming Job
 python pipelines/streaming/run_dataflow.py
 ```
+**Why do we do this?** The `run_dataflow.py` scripts take our exact same Apache Beam Python code but tell Google Cloud Dataflow to run it. Dataflow automatically spins up clusters of servers (workers) in the cloud to process massive amounts of data in parallel, which a single laptop couldn't handle.
 
 #### 3. Airflow Orchestration
 Start the Airflow scheduler to automate the batch pipeline daily:
@@ -170,3 +178,5 @@ airflow db init
 airflow standalone
 ```
 *Access the Airflow UI at `http://localhost:8080` to toggle the `batch_ingestion_pipeline` DAG.*
+
+**Why do we do this?** Data pipelines need to run on a schedule (e.g., every midnight). Apache Airflow is an orchestrator that manages this schedule. The DAG (Directed Acyclic Graph) we wrote tells Airflow: "First run the extraction, then upload to Cloud Storage, and finally trigger the Dataflow job — and only proceed if the previous step succeeds."
