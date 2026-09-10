@@ -297,8 +297,10 @@ terraform apply -var="project_id=your-gcp-project-id"
 
 #### 2. Build and Deploy the Ingestion API (No local Docker needed)
 ```bash
-# Build the image completely on Google Cloud
-gcloud builds submit --tag us-central1-docker.pkg.dev/your-gcp-project-id/fraud-repo/transaction-ingestion-api:latest -f cloud_run/Dockerfile .
+# Cloud Build expects the Dockerfile in the root, so we temporarily copy it
+cp cloud_run/Dockerfile .
+gcloud builds submit --tag us-central1-docker.pkg.dev/your-gcp-project-id/fraud-repo/transaction-ingestion-api:latest .
+rm Dockerfile
 
 # Deploy the built image to Cloud Run
 gcloud run deploy transaction-ingestion-api \
