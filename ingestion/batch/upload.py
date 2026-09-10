@@ -46,14 +46,14 @@ def upload_to_gcs(bucket_name: str, source_folder: Path, destination_prefix: str
         log.error("Source folder %s does not exist or is not a directory.", source_folder)
         sys.exit(1)
 
-    csv_files = list(source_folder.glob("*.csv"))
+    csv_files = list(source_folder.rglob("*.csv"))
     if not csv_files:
         log.warning("No CSV files found in %s", source_folder)
         return
 
     for file_path in csv_files:
-        # GCS path: raw/customers.csv
-        blob_name = f"{destination_prefix}{file_path.name}"
+        # GCS path: customers/customers.csv
+        blob_name = f"{destination_prefix}{file_path.relative_to(source_folder)}"
         blob = bucket.blob(blob_name)
         
         log.info("Uploading %s to gs://%s/%s ...", file_path.name, bucket_name, blob_name)
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Upload extracted data to Google Cloud Storage")
     parser.add_argument("--source", type=Path, default=Path("data/extracted"), help="Directory containing CSVs to upload")
     parser.add_argument("--bucket", type=str, help="GCS Bucket name")
-    parser.add_argument("--prefix", type=str, default="raw/", help="Prefix (folder) in GCS")
+    parser.add_argument("--prefix", type=str, default="", help="Prefix (folder) in GCS")
     
     args = parser.parse_args()
     main(args)
