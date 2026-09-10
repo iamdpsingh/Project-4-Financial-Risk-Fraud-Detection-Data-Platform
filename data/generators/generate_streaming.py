@@ -174,8 +174,8 @@ def main(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Stream synthetic transaction events to Pub/Sub or stdout")
-    parser.add_argument("--rate", type=float, default=5.0, help="Events per second")
-    parser.add_argument("--duration", type=int, default=300, help="How long to run (seconds)")
+    parser.add_argument("--rate", type=float, default=50.0, help="Events per second")
+    parser.add_argument("--duration", type=int, default=86400, help="How long to run (seconds)")
     parser.add_argument("--pubsub", action="store_true", help="Publish to Pub/Sub instead of stdout")
     parser.add_argument("--project", type=str, default=os.getenv("GCP_PROJECT_ID", "local-project"))
     parser.add_argument("--topic", type=str, default=os.getenv("PUBSUB_TOPIC_TRANSACTIONS", "transaction-events"))
