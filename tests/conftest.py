@@ -3,10 +3,10 @@ pytest configuration and shared fixtures for the Financial Risk & Fraud Detectio
 """
 
 import os
-import pytest
 from pathlib import Path
-from dotenv import load_dotenv
 
+import pytest
+from dotenv import load_dotenv
 
 # ── Load environment variables ────────────────────────────────────────────────
 # Use .env.test if it exists, otherwise fall back to .env.example defaults

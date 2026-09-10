@@ -1,9 +1,14 @@
-from fastapi import FastAPI, HTTPException, status
-from google.cloud import pubsub_v1
-import os
 import json
 import logging
+import os
+
+from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException, status
+from google.cloud import pubsub_v1
+
 from .models import TransactionEvent
+
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("ingestion-api")
@@ -48,8 +53,8 @@ async def ingest_transaction(transaction: TransactionEvent):
             "message_id": message_id
         }
     except Exception as e:
-        logger.error(f"Error publishing to Pub/Sub: {str(e)}")
+        logger.error(f"Error publishing to Pub/Sub: {e!s}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to publish transaction: {str(e)}"
-        )
+            detail=f"Failed to publish transaction: {e!s}",
+        ) from e

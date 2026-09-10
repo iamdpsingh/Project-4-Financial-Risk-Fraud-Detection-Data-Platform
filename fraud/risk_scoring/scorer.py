@@ -1,11 +1,11 @@
 """
 Risk Scorer for financial transactions.
 
-Combines the results from the rule engine into a final 0–100 risk score
+Combines the results from the rule engine into a final 0-100 risk score
 based on predefined weights.
 """
 
-from typing import Dict, Any, Tuple
+from typing import Any
 
 # Weights for each signal
 WEIGHTS = {
@@ -18,7 +18,7 @@ WEIGHTS = {
     "off_hours": 3
 }
 
-def calculate_risk_score(signals: Dict[str, bool]) -> Tuple[int, str]:
+def calculate_risk_score(signals: dict[str, bool]) -> tuple[int, str]:
     """
     Calculates the final risk score based on triggered signals.
     Returns (score, risk_level).
@@ -45,7 +45,7 @@ def calculate_risk_score(signals: Dict[str, bool]) -> Tuple[int, str]:
         
     return score, risk_level
 
-def score_transaction(transaction: Dict[str, Any], signals: Dict[str, bool]) -> Dict[str, Any]:
+def score_transaction(transaction: dict[str, Any], signals: dict[str, bool]) -> dict[str, Any]:
     """
     Takes a transaction and its evaluated signals, and returns an enriched
     transaction dictionary including the risk score and level.

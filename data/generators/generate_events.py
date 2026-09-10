@@ -20,15 +20,15 @@ Run directly:
     python data/generators/generate_events.py
 """
 
+import argparse
 import csv
 import logging
 import random
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
-import argparse
 
-from config import RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR, SAMPLE_SIZE
+from config import OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)

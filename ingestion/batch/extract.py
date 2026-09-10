@@ -11,7 +11,6 @@ import csv
 import logging
 import os
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 import psycopg2
@@ -55,7 +54,7 @@ def get_db_connection():
         log.error("Could not connect to PostgreSQL: %s", e)
         sys.exit(1)
 
-def extract_table(conn, table: str, output_dir: Path, last_updated_at: str = None):
+def extract_table(conn, table: str, output_dir: Path, last_updated_at: str | None = None):
     """
     Extract a table to CSV. If last_updated_at is provided, only extracts
     records where updated_at (or created_at for immutable tables) > last_updated_at.

@@ -1,9 +1,14 @@
 import os
-import streamlit as st
+
 import pandas as pd
 import plotly.express as px
-from google.cloud import bigquery
 import queries
+import streamlit as st
+from dotenv import load_dotenv
+from google.cloud import bigquery
+
+# Load environment variables from .env
+load_dotenv()
 
 # Config
 st.set_page_config(
@@ -49,7 +54,7 @@ def fetch_data(query_str):
         query_job = client.query(query_str)
         return query_job.to_dataframe()
     except Exception as e:
-        st.error(f"Error fetching data: {str(e)}")
+        st.error(f"Error fetching data: {e!s}")
         return pd.DataFrame()
 
 # -- Main Dashboard Layout --

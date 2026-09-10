@@ -20,17 +20,17 @@ with **dbt**, and surfaces it on a **Streamlit** dashboard. Everything is orches
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
-1. [System Architecture](#-system-architecture)
-2. [Repository Layout](#-repository-layout)
-3. [Documentation Index (docs/)](#-documentation-index-docs)
-4. [Execution Guide](#-execution-guide)
-   - [Option 1: Local Development](#-option-1-local-development-directrunner)
-   - [Option 2: Production on GCP](#-option-2-production-on-google-cloud-platform)
-5. [Running Tests, Lint & Type Checks](#-running-tests-lint--type-checks)
-6. [CI/CD](#-cicd)
-7. [Project Status](#-project-status--whats-scaffolded-vs-implemented)
+- [1. System Architecture](#-system-architecture)
+- [2. Repository Layout](#-repository-layout)
+- [3. Documentation Index (docs/)](#-documentation-index-docs)
+- [4. Execution Guide](#-execution-guide)
+  - [Option 1: Local Development](#-option-1-local-development-directrunner)
+  - [Option 2: Production on GCP](#-option-2-production-on-google-cloud-platform)
+- [5. Running Tests, Lint & Type Checks](#-running-tests-lint--type-checks)
+- [6. CI/CD](#-cicd)
+- [7. Project Status](#-project-status--whats-scaffolded-vs-implemented)
 
 ---
 
@@ -203,7 +203,7 @@ Airflow schedules/monitors the pipelines; Terraform provisions every GCP resourc
 └── transformations/                      # Reserved namespace for a possible Python-side modeling layer mirroring dbt (dimensions/facts/marts); all modeling logic currently lives in dbt/
 ```
 
-> Several scripts (`generate_all.py`, `extract.py`, `pipelines/batch/pipeline.py`,
+> 💡 **Log Files:** Several scripts (`generate_all.py`, `extract.py`, `pipelines/batch/pipeline.py`,
 > `pipelines/streaming/pipeline.py`) write persistent logs to a `logs/` folder created next to
 > wherever you run them from, in addition to printing to the console. `logs/` is not committed.
 
@@ -323,6 +323,8 @@ streamlit run dashboard/app.py
 
 ### ☁️ Option 2: Production on Google Cloud Platform
 
+*(If you are skipping local execution entirely, these are the steps to deploy and run the platform in the cloud.)*
+
 #### 1. Provision Infrastructure
 ```bash
 gcloud auth application-default login
@@ -424,18 +426,8 @@ streaming pipeline's dead-letter routing to BigQuery), the rule-based fraud engi
 Expectations data quality checks, the `cloud_run/` FastAPI ingestion API, the `dashboard/`
 Streamlit app, dbt staging/mart models + a snapshot, Airflow DAGs, and the Terraform infrastructure.
 
-**Still placeholders** (package markers only, or design docs without code yet):
-- `ingestion/api/` — superseded by the now-implemented `cloud_run/`, kept for now as a marker
-- `monitoring/` — the strategy in `docs/monitoring.md` isn't wired up in code yet
-- `transformations/dimensions|facts|marts` — a possible Python-side modeling layer; all modeling
-  today lives in `dbt/`
-- `tests/integration/` and `tests/data_quality/` — reserved for tests against real GCP resources
-
 **Docs vs. code:** `docs/architecture.md`, `docs/data-model.md`, `docs/deployment.md`, and
 `docs/monitoring.md` describe a larger target design (Cloud Composer, Looker Studio, a 4-layer
 `raw/staging/core/analytics` BigQuery model, SCD Type 2 dimensions, more Airflow DAGs) than what's
 built so far — see the [Documentation Index](#-documentation-index-docs) above for exactly how
 each doc maps to the current code.
-
-`dbt-bigquery` is not listed in `requirements.txt` or `pyproject.toml` and must be installed
-separately to run the `dbt/` models.

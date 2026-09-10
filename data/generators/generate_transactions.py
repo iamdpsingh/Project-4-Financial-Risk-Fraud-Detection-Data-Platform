@@ -15,7 +15,7 @@ The fraud patterns embedded here:
     5. High-risk merchant + large amount — a crypto exchange or gambling site with an unusually big purchase
 
 Most transactions are completely normal. The fraudulent ones are mixed in
-at realistic proportions — usually 1–5% depending on the pattern.
+at realistic proportions — usually 1-5% depending on the pattern.
 
 Run directly:
     python data/generators/generate_transactions.py
@@ -27,15 +27,19 @@ import csv
 import logging
 import random
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import numpy as np
-
 from config import (
-    NUM_TRANSACTIONS, RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR, SAMPLE_SIZE,
-    AMOUNT_RANGES_USD, EXCHANGE_RATES_TO_USD, SUPPORTED_CURRENCIES,
+    AMOUNT_RANGES_USD,
+    EXCHANGE_RATES_TO_USD,
     FRAUD_CONFIG,
+    NUM_TRANSACTIONS,
+    OUTPUT_DIR,
+    RANDOM_SEED,
+    SAMPLE_DIR,
+    SAMPLE_SIZE,
 )
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
@@ -157,7 +161,7 @@ def inject_velocity_burst(
     device = rng.choice(devices)
     txns = []
 
-    for i in range(count):
+    for _i in range(count):
         seconds_offset = rng.randint(0, 180)  # spread over 3 minutes
         txn_time = burst_time + timedelta(seconds=seconds_offset)
         currency = pick_currency_for_country(customer["country"], rng)
@@ -244,7 +248,7 @@ def inject_high_risk_large_amount(
     """
     merchant = rng.choice(high_risk_merchants)
     currency = "USD"
-    # Amount is intentionally 5–10x the normal range for this category.
+    # Amount is intentionally 5-10x the normal range for this category.
     amount, amount_usd = amount_in_original_currency(
         merchant["merchant_category"], currency, rng, multiplier=rng.uniform(5, 10)
     )
@@ -303,8 +307,8 @@ def generate_transactions(
     high_risk_merchants = [m for m in merchants if m["risk_category"] == "high"]
 
     transactions = []
-    base_time = datetime(2024, 1, 1, tzinfo=timezone.utc)
-    end_time = datetime(2024, 12, 31, tzinfo=timezone.utc)
+    base_time = datetime(2024, 1, 1, tzinfo=UTC)
+    end_time = datetime(2024, 12, 31, tzinfo=UTC)
     total_seconds = int((end_time - base_time).total_seconds())
 
     # How many transactions should be fraud-pattern injections?

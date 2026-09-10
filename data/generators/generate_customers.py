@@ -16,16 +16,19 @@ import csv
 import logging
 import random
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import numpy as np
-from faker import Faker
-
 from config import (
-    NUM_CUSTOMERS, RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR, SAMPLE_SIZE,
     CUSTOMER_COUNTRIES,
+    NUM_CUSTOMERS,
+    OUTPUT_DIR,
+    RANDOM_SEED,
+    SAMPLE_DIR,
+    SAMPLE_SIZE,
 )
+from faker import Faker
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -57,7 +60,7 @@ def pick_segment(rng: random.Random) -> str:
 
 def random_dob(rng: random.Random) -> str:
     """Generate a date of birth for someone between 18 and 75 years old."""
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(UTC).date()
     days_offset = rng.randint(18 * 365, 75 * 365)
     dob = today - timedelta(days=days_offset)
     return dob.isoformat()
@@ -81,7 +84,7 @@ def generate_customers(count: int, seed: int) -> list[dict]:
     Faker.seed(seed)
 
     customers = []
-    base_time = datetime(2020, 1, 1, tzinfo=timezone.utc)
+    base_time = datetime(2020, 1, 1, tzinfo=UTC)
 
     for i in range(count):
         country = pick_country(rng)
@@ -89,7 +92,7 @@ def generate_customers(count: int, seed: int) -> list[dict]:
         created_at = base_time + created_delta
 
         # updated_at is either the same as created_at or sometime after
-        updated_delta = timedelta(days=rng.randint(0, (datetime.now(timezone.utc) - created_at).days or 1))
+        updated_delta = timedelta(days=rng.randint(0, (datetime.now(UTC) - created_at).days or 1))
         updated_at = created_at + updated_delta
 
         customers.append({

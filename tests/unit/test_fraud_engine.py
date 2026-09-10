@@ -3,8 +3,10 @@ Unit tests for the Beam pipeline DoFns and Fraud Rules.
 """
 
 import unittest
+
+from fraud.risk_scoring.scorer import calculate_risk_score
 from fraud.rules.rule_engine import evaluate_all_rules, evaluate_high_amount, evaluate_new_device
-from fraud.risk_scoring.scorer import calculate_risk_score, score_transaction
+
 
 class TestFraudRules(unittest.TestCase):
 

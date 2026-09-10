@@ -5,10 +5,11 @@ Executes the pipeline on Google Cloud Dataflow for continuous streaming processi
 """
 
 import logging
+import os
 import subprocess
 import sys
-import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  [%(name)s]  %(message)s")

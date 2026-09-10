@@ -5,7 +5,7 @@ Handles parsing Pub/Sub messages, evaluating fraud rules, and scoring risk.
 
 import json
 import logging
-from typing import Any, Dict
+from typing import Any
 
 import apache_beam as beam
 
@@ -32,7 +32,7 @@ class EnrichTransaction(beam.DoFn):
     to get the customer's 30-day average, recent transaction count, etc.
     For this simulation, we'll mock some of these values if they aren't present.
     """
-    def process(self, transaction: Dict[str, Any]):
+    def process(self, transaction: dict[str, Any]):
         # Mocking the enrichment for Phase 3 local execution
         # In Phase 13, this connects to a real feature store.
         enriched = transaction.copy()
@@ -62,10 +62,10 @@ class ScoreFraudRisk(beam.DoFn):
         if str(repo_root) not in sys.path:
             sys.path.insert(0, str(repo_root))
             
-    def process(self, transaction: Dict[str, Any]):
+    def process(self, transaction: dict[str, Any]):
         try:
-            from fraud.rules.rule_engine import evaluate_all_rules
             from fraud.risk_scoring.scorer import score_transaction
+            from fraud.rules.rule_engine import evaluate_all_rules
             
             # 1. Evaluate rules
             signals = evaluate_all_rules(
@@ -95,7 +95,7 @@ class ScoreFraudRisk(beam.DoFn):
 
 class FormatForBigQuery(beam.DoFn):
     """Prepares the final scored transaction for BigQuery insertion."""
-    def process(self, scored_txn: Dict[str, Any]):
+    def process(self, scored_txn: dict[str, Any]):
         # Depending on the schema, ensure timestamps are correct
         # and types match.
         yield scored_txn

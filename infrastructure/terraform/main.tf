@@ -26,10 +26,10 @@ module "iam" {
 }
 
 module "storage" {
-  source           = "./modules/storage"
-  project_id       = var.project_id
-  region           = var.region
-  bucket_prefix    = var.bucket_prefix
+  source        = "./modules/storage"
+  project_id    = var.project_id
+  region        = var.region
+  bucket_prefix = var.bucket_prefix
 }
 
 module "pubsub" {
@@ -39,9 +39,9 @@ module "pubsub" {
 }
 
 module "bigquery" {
-  source             = "./modules/bigquery"
-  project_id         = var.project_id
-  region             = var.region
-  staging_dataset    = "staging"
-  analytics_dataset  = "analytics"
+  source            = "./modules/bigquery"
+  project_id        = var.project_id
+  region            = var.region
+  staging_dataset   = "staging"
+  analytics_dataset = "analytics"
 }

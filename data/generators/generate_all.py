@@ -17,7 +17,6 @@ Usage:
 """
 
 import argparse
-import csv
 import logging
 import os
 import sys
@@ -27,17 +26,21 @@ from pathlib import Path
 # Make sure the generators directory is in the path so we can import config.
 sys.path.insert(0, str(Path(__file__).parent))
 
-from config import (
-    NUM_CUSTOMERS, NUM_ACCOUNTS, NUM_MERCHANTS, NUM_DEVICES,
-    NUM_TRANSACTIONS, RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR,
-)
-
-import generate_customers
 import generate_accounts
-import generate_merchants
+import generate_customers
 import generate_devices
-import generate_transactions
 import generate_events
+import generate_merchants
+import generate_transactions
+from config import (
+    NUM_ACCOUNTS,
+    NUM_CUSTOMERS,
+    NUM_DEVICES,
+    NUM_MERCHANTS,
+    NUM_TRANSACTIONS,
+    OUTPUT_DIR,
+    SAMPLE_DIR,
+)
 
 # Configure logging to write to both console and a file in the logs/ directory
 log_dir = Path("logs")

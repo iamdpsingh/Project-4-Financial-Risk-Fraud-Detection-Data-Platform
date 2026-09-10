@@ -20,15 +20,20 @@ import csv
 import logging
 import random
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-from faker import Faker
-
 from config import (
-    NUM_MERCHANTS, RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR, SAMPLE_SIZE,
-    MERCHANT_CATEGORIES, MERCHANT_RISK_MAP, CUSTOMER_COUNTRIES,
+    CUSTOMER_COUNTRIES,
+    MERCHANT_CATEGORIES,
+    MERCHANT_RISK_MAP,
+    NUM_MERCHANTS,
+    OUTPUT_DIR,
+    RANDOM_SEED,
+    SAMPLE_DIR,
+    SAMPLE_SIZE,
 )
+from faker import Faker
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -109,9 +114,9 @@ def generate_merchants(count: int, seed: int) -> list[dict]:
     Faker.seed(seed)
 
     merchants = []
-    base_time = datetime(2015, 1, 1, tzinfo=timezone.utc)
+    base_time = datetime(2015, 1, 1, tzinfo=UTC)
 
-    for i in range(count):
+    for _i in range(count):
         category = pick_category(rng)
         risk = MERCHANT_RISK_MAP.get(category, "low")
         country = pick_country(rng)

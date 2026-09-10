@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Field
 from datetime import datetime
-from typing import Optional
+
+from pydantic import BaseModel, Field
+
 
 class TransactionEvent(BaseModel):
     transaction_id: str = Field(..., description="Unique identifier for the transaction")
@@ -15,4 +16,4 @@ class TransactionEvent(BaseModel):
     type: str = Field(..., description="Type of transaction (e.g., online, pos, atm, wire)")
     country: str = Field(..., description="Country code (ISO 3166-1 alpha-2) of the transaction location", min_length=2, max_length=2)
     payment_method: str = Field(..., description="Payment method used (e.g., credit_card, debit_card)")
-    is_fraud: Optional[bool] = Field(default=None, description="Ground truth flag for fraud (optional for simulation)")
+    is_fraud: bool | None = Field(default=None, description="Ground truth flag for fraud (optional for simulation)")

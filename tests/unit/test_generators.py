@@ -7,24 +7,19 @@ We check the things that matter: required fields are present, values are
 within valid ranges, and the fraud patterns are actually being injected.
 """
 
-import csv
 import random
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-
-import pytest
 
 # Add the generators folder to the path so we can import the modules directly.
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "data" / "generators"))
 
 import generate_customers
-import generate_accounts
-import generate_merchants
 import generate_devices
+import generate_merchants
 import generate_transactions
-from config import CUSTOMER_COUNTRIES, MERCHANT_CATEGORIES, SUPPORTED_CURRENCIES
-
+from config import CUSTOMER_COUNTRIES
 
 # ── Customer tests ─────────────────────────────────────────────────────────────
 
@@ -159,7 +154,7 @@ class TestGenerateDevices:
         devices = generate_devices.generate_devices(
             ids, target_count=300, seed=42, new_device_fraction=0.10
         )
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         new_devices = [
             d for d in devices
             if (now - datetime.fromisoformat(d["first_seen_at"])).total_seconds() < 86400
@@ -194,7 +189,7 @@ class TestTransactionHelpers:
         account = {"account_id": "a1"}
         merchant = {"merchant_id": "m1", "merchant_category": "Online Retail"}
         device = {"device_id": "d1", "ip_address": "1.2.3.4"}
-        txn_time = datetime(2024, 6, 1, tzinfo=timezone.utc)
+        txn_time = datetime(2024, 6, 1, tzinfo=UTC)
 
         txn = generate_transactions.inject_geo_anomaly(customer, account, merchant, device, txn_time, rng)
 
@@ -207,7 +202,7 @@ class TestTransactionHelpers:
         accounts = [{"account_id": f"a{i}"} for i in range(3)]
         merchants = [{"merchant_id": "m1", "merchant_category": "Online Retail", "risk_category": "low"}]
         devices = [{"device_id": "d1", "ip_address": "1.2.3.4"}]
-        burst_time = datetime(2024, 6, 1, 12, 0, tzinfo=timezone.utc)
+        burst_time = datetime(2024, 6, 1, 12, 0, tzinfo=UTC)
 
         txns = generate_transactions.inject_velocity_burst(
             customer, accounts, merchants, devices, burst_time, rng, count=10
@@ -224,7 +219,7 @@ class TestTransactionHelpers:
         accounts = [{"account_id": "a1"}]
         merchants = [{"merchant_id": "m1", "merchant_category": "Online Retail", "risk_category": "low"}]
         devices = [{"device_id": "d1", "ip_address": "1.2.3.4"}]
-        burst_time = datetime(2024, 6, 1, 12, 0, tzinfo=timezone.utc)
+        burst_time = datetime(2024, 6, 1, 12, 0, tzinfo=UTC)
 
         txns = generate_transactions.inject_velocity_burst(
             customer, accounts, merchants, devices, burst_time, rng, count=12

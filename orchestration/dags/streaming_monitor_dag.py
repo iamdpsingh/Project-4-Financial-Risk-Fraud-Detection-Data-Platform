@@ -6,11 +6,13 @@ This DAG doesn't trigger the pipeline; instead, it checks the health of the
 Dataflow job periodically to ensure it hasn't crashed.
 """
 
-from datetime import datetime, timedelta
-import os
 import logging
-from airflow import DAG
+from datetime import datetime, timedelta
+
 from airflow.operators.python import PythonOperator
+
+from airflow import DAG
+
 
 def check_streaming_health():
     """

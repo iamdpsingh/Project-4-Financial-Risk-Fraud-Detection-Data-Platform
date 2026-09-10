@@ -3,7 +3,7 @@ Apache Beam DoFn classes and transformations for the batch pipeline.
 """
 
 import logging
-from typing import Any, Dict
+from typing import Any
 
 import apache_beam as beam
 
@@ -14,7 +14,7 @@ class ParseCSVLine(beam.DoFn):
     def __init__(self, headers: list[str]):
         self.headers = headers
 
-    def process(self, element: str) -> list[Dict[str, Any]]:
+    def process(self, element: str) -> list[dict[str, Any]]:
         import csv
         from io import StringIO
         
@@ -27,7 +27,7 @@ class ParseCSVLine(beam.DoFn):
             row = next(reader)
             
             # Map row to headers
-            record = dict(zip(self.headers, row))
+            record = dict(zip(self.headers, row, strict=False))
             
             # Clean up empty strings to None/null for BigQuery
             for k, v in record.items():
@@ -48,7 +48,7 @@ class ValidateRecord(beam.DoFn):
     def __init__(self, table_name: str):
         self.table_name = table_name
         
-    def process(self, record: Dict[str, Any]):
+    def process(self, record: dict[str, Any]):
         try:
             # Example basic validation/casting
             if self.table_name == "transactions":
@@ -71,7 +71,7 @@ class TransformForBigQuery(beam.DoFn):
     Transforms the validated records into the exact format expected by BigQuery.
     Handles any necessary datatype conversions, timestamp formatting, etc.
     """
-    def process(self, record: Dict[str, Any]):
+    def process(self, record: dict[str, Any]):
         # The schema definition in BigQuery will handle basic JSON-to-SQL types.
         # Ensure we don't pass complex objects if they aren't expected.
         # This is essentially a pass-through in this simplified setup.

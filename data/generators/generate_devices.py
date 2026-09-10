@@ -20,13 +20,12 @@ import csv
 import logging
 import random
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from ipaddress import IPv4Address
 from pathlib import Path
 
+from config import NUM_DEVICES, OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 from faker import Faker
-
-from config import NUM_DEVICES, RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR, SAMPLE_SIZE
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -72,7 +71,7 @@ def generate_devices(
     """
     Generate devices linked to customers.
 
-    Most customers get 1–2 devices. The new_device_fraction controls how many
+    Most customers get 1-2 devices. The new_device_fraction controls how many
     devices were created very recently (to simulate the fraud pattern where
     someone uses a brand new device for a high-value transaction).
     """
@@ -81,8 +80,8 @@ def generate_devices(
     Faker.seed(seed)
 
     devices = []
-    now = datetime.now(timezone.utc)
-    base_time = datetime(2019, 1, 1, tzinfo=timezone.utc)
+    now = datetime.now(UTC)
+    base_time = datetime(2019, 1, 1, tzinfo=UTC)
 
     shuffled = customer_ids.copy()
     rng.shuffle(shuffled)

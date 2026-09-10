@@ -28,10 +28,10 @@ import random
 import sys
 import time
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime
 from pathlib import Path
 
-from config import RANDOM_SEED, OUTPUT_DIR
+from config import OUTPUT_DIR, RANDOM_SEED
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -90,7 +90,7 @@ def build_event(
     txn_country = rng.choice(["RU", "CN", "NG"]) if is_geo_anomaly else customer["country"]
 
     amount = round(rng.uniform(5, 2000), 2)
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
 
     return {
         "event_id": str(uuid.uuid4()),

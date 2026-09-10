@@ -7,10 +7,13 @@ This DAG runs daily to:
 3. Trigger a Dataflow batch job to parse, validate, and load the data into BigQuery
 """
 
-from datetime import datetime, timedelta
 import os
-from airflow import DAG
+from datetime import datetime, timedelta
+
 from airflow.operators.bash import BashOperator
+
+from airflow import DAG
+
 # from airflow.providers.google.cloud.operators.dataflow import DataflowCreatePythonJobOperator
 # For this project, we'll trigger Dataflow via a bash script to reuse our python run_dataflow.py
 

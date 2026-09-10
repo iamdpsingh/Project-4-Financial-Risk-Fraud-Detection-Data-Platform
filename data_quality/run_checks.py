@@ -8,8 +8,9 @@ we use the ephemeral context to validate pandas DataFrames loaded from our CSV o
 import argparse
 import logging
 from pathlib import Path
-import pandas as pd
+
 import great_expectations as gx
+import pandas as pd
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  [%(name)s]  %(message)s")
 log = logging.getLogger("data_quality")

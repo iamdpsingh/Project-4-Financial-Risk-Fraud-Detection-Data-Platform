@@ -19,10 +19,16 @@ import csv
 import logging
 import random
 import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-from config import NUM_ACCOUNTS, RANDOM_SEED, OUTPUT_DIR, SAMPLE_DIR, SAMPLE_SIZE, SUPPORTED_CURRENCIES
+from config import (
+    NUM_ACCOUNTS,
+    OUTPUT_DIR,
+    RANDOM_SEED,
+    SAMPLE_DIR,
+    SAMPLE_SIZE,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -66,14 +72,14 @@ def generate_accounts(
     """
     Generate accounts linked to the provided customer IDs.
 
-    We assign each customer a random number of accounts (1–3), then
+    We assign each customer a random number of accounts (1-3), then
     trim or pad the list to hit the target count. The distribution of
     account types and statuses mirrors what you'd expect from a real
     financial institution.
     """
     rng = random.Random(seed)
     accounts = []
-    base_time = datetime(2018, 1, 1, tzinfo=timezone.utc)
+    base_time = datetime(2018, 1, 1, tzinfo=UTC)
 
     # Shuffle customer IDs so the assignment of "how many accounts" is random.
     shuffled_customers = customer_ids.copy()
@@ -83,7 +89,7 @@ def generate_accounts(
         if len(accounts) >= target_count:
             break
 
-        # Give each customer 1–3 accounts.
+        # Give each customer 1-3 accounts.
         num_accounts = rng.choices([1, 2, 3], weights=[0.50, 0.35, 0.15], k=1)[0]
 
         for _ in range(num_accounts):

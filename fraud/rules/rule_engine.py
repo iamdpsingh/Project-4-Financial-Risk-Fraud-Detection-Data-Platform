@@ -7,9 +7,10 @@ For this simulation, we use the data encoded in the transaction event itself
 and simple state abstractions.
 """
 
-from typing import Dict, Any
+from typing import Any
 
-def evaluate_high_amount(transaction: Dict[str, Any], customer_avg_30d: float) -> bool:
+
+def evaluate_high_amount(transaction: dict[str, Any], customer_avg_30d: float) -> bool:
     """True if amount > 3x customer's 30-day average."""
     amount_usd = transaction.get("amount_usd", 0)
     # If we don't have a baseline, we use a sensible default check
@@ -17,7 +18,7 @@ def evaluate_high_amount(transaction: Dict[str, Any], customer_avg_30d: float) -
         return amount_usd > 1000
     return amount_usd > (3 * customer_avg_30d)
 
-def evaluate_new_device(transaction: Dict[str, Any]) -> bool:
+def evaluate_new_device(transaction: dict[str, Any]) -> bool:
     """
     True if the device was first seen less than 24 hours ago.
     In the streaming payload from our generator, we might not have the device
@@ -27,24 +28,24 @@ def evaluate_new_device(transaction: Dict[str, Any]) -> bool:
     # or we mock it based on a flag.
     return transaction.get("is_new_device", False)
 
-def evaluate_geo_anomaly(transaction: Dict[str, Any]) -> bool:
+def evaluate_geo_anomaly(transaction: dict[str, Any]) -> bool:
     """True if transaction country does not match customer's home country."""
     # Our generator provides 'is_international' as a string "true"/"false"
     return str(transaction.get("is_international", "false")).lower() == "true"
 
-def evaluate_velocity_burst(transaction: Dict[str, Any], txn_count_5m: int) -> bool:
+def evaluate_velocity_burst(transaction: dict[str, Any], txn_count_5m: int) -> bool:
     """True if more than 5 transactions in the last 5 minutes."""
     return txn_count_5m > 5
 
-def evaluate_repeated_failures(transaction: Dict[str, Any], failure_count_1h: int) -> bool:
+def evaluate_repeated_failures(transaction: dict[str, Any], failure_count_1h: int) -> bool:
     """True if more than 2 payment failures in the last hour."""
     return failure_count_1h > 2
 
-def evaluate_high_risk_merchant(transaction: Dict[str, Any]) -> bool:
+def evaluate_high_risk_merchant(transaction: dict[str, Any]) -> bool:
     """True if merchant is flagged as high-risk by compliance."""
     return transaction.get("merchant_risk_category", "low").lower() == "high"
 
-def evaluate_off_hours(transaction: Dict[str, Any]) -> bool:
+def evaluate_off_hours(transaction: dict[str, Any]) -> bool:
     """True if transaction happened between midnight and 5am local time."""
     # Simplified: We just check the UTC timestamp for demo purposes.
     # A real implementation would parse the timestamp and convert to local TZ.
@@ -59,11 +60,11 @@ def evaluate_off_hours(transaction: Dict[str, Any]) -> bool:
         return False
 
 def evaluate_all_rules(
-    transaction: Dict[str, Any],
+    transaction: dict[str, Any],
     customer_avg_30d: float = 0.0,
     txn_count_5m: int = 0,
     failure_count_1h: int = 0
-) -> Dict[str, bool]:
+) -> dict[str, bool]:
     """Evaluates all fraud signals and returns a dictionary of the results."""
     return {
         "high_amount": evaluate_high_amount(transaction, customer_avg_30d),

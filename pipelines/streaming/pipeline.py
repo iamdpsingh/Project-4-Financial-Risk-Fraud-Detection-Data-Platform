@@ -10,11 +10,11 @@ import logging
 from pathlib import Path
 
 import apache_beam as beam
-from apache_beam.options.pipeline_options import PipelineOptions
-from apache_beam.options.pipeline_options import SetupOptions
-from apache_beam.options.pipeline_options import StandardOptions
+from apache_beam.options.pipeline_options import PipelineOptions, SetupOptions, StandardOptions
+from dotenv import load_dotenv
+from transforms import EnrichTransaction, FormatForBigQuery, ParsePubSubMessage, ScoreFraudRisk
 
-from transforms import ParsePubSubMessage, EnrichTransaction, ScoreFraudRisk, FormatForBigQuery
+load_dotenv()
 
 # Configure logging to write to both console and a file in the logs/ directory
 log_dir = Path("logs")
