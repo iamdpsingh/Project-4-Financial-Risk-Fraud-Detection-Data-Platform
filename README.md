@@ -225,166 +225,49 @@ this table to see how each doc maps to what actually exists in the repo today:
 
 ---
 
-## 🚀 Execution Guide
+## 🚀 Execution Guide (GCP Production)
 
-This platform runs entirely on your laptop using simulated services, or fully deployed to GCP.
+This platform is configured to run end-to-end on Google Cloud Platform, processing up to 2.5 Million synthetic transactions.
 
-### 💻 Option 1: Local Development (DirectRunner)
-
-#### 1. Setup Environment
+### 1. Generate Raw Data (2.5 Million Records)
+Generate the massive synthetic datasets locally before shipping them to GCP:
 ```bash
-git clone https://github.com/iamdpsingh/Project-4-Financial-Risk-Fraud-Detection-Data-Platform.git
-cd Project-4-Financial-Risk-Fraud-Detection-Data-Platform
-python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt && pip install -e .
+python data/generators/generate_all.py --skip-postgres
 ```
-**Why do we do this?** A virtual environment (`.venv`) isolates this project's dependencies from
-your system Python. `requirements.txt` gets you the core runtime packages quickly;
-`pip install -e .` additionally installs the repo itself in editable mode (via `pyproject.toml`),
-so its internal packages (`fraud`, `pipelines`, `cloud_run`, ...) are importable everywhere, and
-pulls in the fuller dependency set (FastAPI, Great Expectations, Streamlit/Plotly). Add
-`pip install -e ".[dev]"` if you also want `pytest`/`ruff`/`mypy`.
+*Note: Logs will be automatically generated in the `logs/` directory.*
 
-Copy the environment template and adjust as needed:
+### 2. Upload Batch Data to Cloud Storage
+Push the generated CSVs directly into your GCS raw data bucket:
 ```bash
-cp .env.example .env
+python ingestion/batch/upload.py --source data/raw
 ```
 
-#### 2. Start Services & Generate Data
-*Requires Docker Desktop running.*
+### 3. Start the Live Streaming Generator
+Simulate thousands of live transaction events continuously hitting your GCP Pub/Sub topic:
 ```bash
-# Start Postgres & Pub/Sub Emulator
-docker compose up -d
-
-# Schema is applied automatically on first start; re-apply manually if ever needed:
-docker exec -i frp_postgres psql -U fraud_user -d financial_risk < infrastructure/postgres/init.sql
-
-python data/generators/generate_all.py
-```
-**Why do we do this?** `docker compose up -d` starts a local PostgreSQL database (source of truth
-for historical data) and a Pub/Sub emulator (message broker for live streams). `generate_all.py`
-fills PostgreSQL with realistic, synthetic customers/accounts/merchants/devices/transactions/events
-and logs its progress to `logs/generate_all.log`.
-
-#### 3. Run Data Quality Checks (optional but recommended)
-```bash
-python data_quality/run_checks.py
-```
-**Why do we do this?** Runs the Great Expectations suite over the generated transactions —
-uniqueness of `transaction_id`, non-null key fields, valid amount ranges, and valid
-`transaction_type` values — catching bad data before it reaches the pipelines.
-
-#### 4. Run Pipelines Locally
-**Batch Pipeline:**
-```bash
-python ingestion/batch/extract.py --output data/raw
-python pipelines/batch/pipeline.py --runner=DirectRunner --input_dir=data/raw --output_local
-```
-**Why do we do this?** `extract.py` simulates a nightly job pulling the latest records from
-Postgres and saving them as CSVs. The batch `pipeline.py` then uses Apache Beam's `DirectRunner`
-(a local execution engine) to parse the CSVs, validate the data types, and prepare it for
-analytics — logging to `logs/batch_pipeline.log` along the way.
-
-**Streaming Pipeline (2 terminal windows):**
-```bash
-# Terminal 1: Stream transactions to Pub/Sub
-source .venv/bin/activate
 python data/generators/generate_streaming.py --pubsub
-
-# Terminal 2: Process the stream through Apache Beam
-source .venv/bin/activate
-python pipelines/streaming/pipeline.py --runner=DirectRunner
-```
-**Why do we do this?** Terminal 1 fires simulated live transactions into the Pub/Sub broker.
-Terminal 2 runs the streaming pipeline, which consumes those messages, runs each one through
-`fraud/rules/rule_engine.py` + `fraud/risk_scoring/scorer.py`, writes scored rows to the
-`transaction_risk` table, and routes anything malformed or that fails scoring to the
-`transactions_dlq` dead-letter table instead of dropping it silently.
-
-#### 5. Run Tests
-```bash
-pytest tests/unit/ -v --cov=. --cov-report=term-missing
 ```
 
-#### 6. (Optional) Run the Cloud Run API and Dashboard locally
+### 4. Execute Dataflow Pipelines
+Spin up autoscaling Apache Beam workers on Google Cloud Dataflow to process the data:
 ```bash
-# API (needs GOOGLE_APPLICATION_CREDENTIALS + a real/emulated Pub/Sub topic to publish to)
-uvicorn cloud_run.main:app --reload --port 8080
+# Process historical batch data
+python pipelines/batch/run_dataflow.py
 
-# Dashboard (needs a real BigQuery project with a `transaction_risk` table to read from)
+# Process live streaming data (Long-running)
+python pipelines/streaming/run_dataflow.py
+```
+
+### 5. Launch the Executive Dashboard
+Monitor the real-time processing, risk distribution, and critical threats:
+```bash
 streamlit run dashboard/app.py
 ```
 
 ---
 
-### ☁️ Option 2: Production on Google Cloud Platform
-
-*(If you are skipping local execution entirely, these are the steps to deploy and run the platform in the cloud.)*
-
-#### 1. Provision Infrastructure
-```bash
-gcloud auth application-default login
-cd infrastructure/terraform
-terraform init
-terraform apply -var="project_id=your-gcp-project-id"
-```
-**Why do we do this?** Terraform (Infrastructure as Code) predictably creates the GCS buckets,
-BigQuery datasets/tables (including `transaction_risk` and the `transactions_dlq` dead-letter
-table), Pub/Sub topic/subscription/DLQ topic, and service accounts exactly as configured in code.
-Deletion protection is off on these resources for clean `terraform destroy` — be mindful of that
-outside of learning/demo use.
-
-#### 2. Build and Deploy the Ingestion API
-```bash
-gcloud auth configure-docker <region>-docker.pkg.dev
-docker build -t <image-tag> -f cloud_run/Dockerfile .
-docker push <image-tag>
-gcloud run deploy transaction-ingestion-api --image=<image-tag> --region=<region>
-```
-**Why do we do this?** `cloud_run/main.py` is the real front door for live transactions in
-production: it validates each payload with the `TransactionEvent` Pydantic model
-(`cloud_run/models.py`) and publishes it to Pub/Sub, returning `202 Accepted` immediately.
-
-#### 3. Upload Historical Data and Run Dataflow Pipelines
-```bash
-python ingestion/batch/upload.py            # push extracted CSVs to the GCS raw bucket
-python pipelines/batch/run_dataflow.py      # submit the batch job to Dataflow
-python pipelines/streaming/run_dataflow.py  # submit the (long-running) streaming job to Dataflow
-```
-**Why do we do this?** The `run_dataflow.py` scripts run the exact same Beam pipeline code but on
-`DataflowRunner`, letting Google Cloud spin up and autoscale worker VMs instead of your laptop.
-
-#### 4. Model the Warehouse with dbt
-```bash
-pip install dbt-bigquery
-cd dbt
-dbt run --vars '{"project_id": "your-gcp-project-id"}'
-dbt snapshot --vars '{"project_id": "your-gcp-project-id"}'
-```
-**Why do we do this?** `dbt run` builds the staging views and the `dim_customer`, `dim_merchant`,
-`fct_transactions` tables described above. `dbt snapshot` captures `customer_risk_snapshot`, so you
-can see how a customer's risk level changed over time rather than only its latest value.
-
-#### 5. Airflow Orchestration
-```bash
-export AIRFLOW_HOME=$(pwd)/airflow
-export PROJECT_ROOT=$(pwd)
-export VENV_PYTHON=$(pwd)/.venv/bin/python
-airflow db init
-airflow standalone
-```
-*Access the Airflow UI at `http://localhost:8080` (login printed in the terminal) to enable
-`batch_ingestion_pipeline` and `streaming_monitor_dag`.*
-
-**Why do we do this?** Airflow schedules the daily batch chain (extract → upload → Dataflow,
-blocking until the job is submitted) and separately polls the health of the always-on streaming
-Dataflow job — both defined in `orchestration/dags/`.
-
-#### 6. Deploy the Dashboard
-```bash
-streamlit run dashboard/app.py
-# or containerize it yourself and deploy to Cloud Run alongside the ingestion API
+*Note: To model the warehouse with dbt or orchestrate with Airflow, refer to the detailed `docs/deployment.md`.*
 ```
 
 ---
