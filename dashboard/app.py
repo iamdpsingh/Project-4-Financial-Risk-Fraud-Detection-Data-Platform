@@ -117,7 +117,7 @@ PROJECT_ID = os.getenv("GCP_PROJECT_ID", "financial-data-platform-508216")
 DATASET = os.getenv("BQ_DATASET_ANALYTICS", "analytics")
 client = get_bq_client()
 
-@st.cache_data(ttl=10, show_spinner=False) # Cache for 10 seconds to sync with autorefresh
+@st.cache_data(ttl=2, show_spinner=False) # TTL=2 ensures the 10s fragment always gets fresh data
 def fetch_all_data(project_id, dataset):
     """Fetches all 4 queries concurrently for lightning-fast UI loads."""
     q_metrics = queries.get_high_level_metrics(project_id, dataset)

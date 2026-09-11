@@ -4,18 +4,13 @@ import sys
 from concurrent.futures import TimeoutError
 from pathlib import Path
 
-from google.cloud import bigquery
-from google.cloud import pubsub_v1
+from google.cloud import bigquery, pubsub_v1
 
 # Add project root to sys.path
 repo_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(repo_root))
 
-from pipelines.streaming.transforms import (  # noqa: E402
-    EnrichTransaction,
-    FormatForBigQuery,
-    ScoreFraudRisk,
-)
+from pipelines.streaming.transforms import EnrichTransaction, FormatForBigQuery, ScoreFraudRisk  # noqa: E402
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("local_worker")
