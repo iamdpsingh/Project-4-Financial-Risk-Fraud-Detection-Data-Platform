@@ -14,15 +14,13 @@ Note: this script needs the customer CSV to already exist, because
 accounts are linked to customers by customer_id.
 """
 
-from utils.logger import get_logger
 import argparse
 import csv
-import logging
 import random
-from typing import Any
 import uuid
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import Any
 
 from config import (
     NUM_ACCOUNTS,
@@ -31,6 +29,8 @@ from config import (
     SAMPLE_DIR,
     SAMPLE_SIZE,
 )
+
+from utils.logger import get_logger
 
 log = get_logger(__name__)
 

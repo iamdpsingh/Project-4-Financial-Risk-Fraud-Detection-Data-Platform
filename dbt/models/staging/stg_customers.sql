@@ -6,17 +6,14 @@ with source as (
 renamed as (
     select
         customer_id,
-        first_name,
-        last_name,
+        name as full_name,
         email,
         phone,
-        address,
         city,
         country,
         date_of_birth,
-        registration_date,
-        risk_score as initial_risk_score,
-        is_active
+        customer_segment,
+        created_at as registration_date
     from source
 )
 select * from renamed

@@ -5,11 +5,11 @@ Usage:
     python pipelines/batch/run_local.py
 """
 
-from utils.logger import get_logger
-import logging
 import subprocess
 import sys
 from pathlib import Path
+
+from utils.logger import get_logger
 
 log = get_logger("batch_run_local")
 

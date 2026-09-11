@@ -11,12 +11,14 @@ renamed as (
         merchant_id,
         device_id,
         amount,
-        timestamp as transaction_timestamp,
-        type as transaction_type,
-        location as transaction_location,
-        is_fraud as actual_is_fraud,
+        amount_usd,
+        currency,
+        transaction_timestamp,
+        transaction_type,
+        country as transaction_location,
         risk_score as streaming_risk_score,
-        risk_level as streaming_risk_level
+        risk_level as streaming_risk_level,
+        signals_triggered
     from source
 )
 select * from renamed

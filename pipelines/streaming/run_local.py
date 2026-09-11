@@ -5,11 +5,11 @@ Usage:
     python pipelines/streaming/run_local.py
 """
 
-from utils.logger import get_logger
-import logging
 import subprocess
 import sys
 from pathlib import Path
+
+from utils.logger import get_logger
 
 log = get_logger("streaming_run_local")
 

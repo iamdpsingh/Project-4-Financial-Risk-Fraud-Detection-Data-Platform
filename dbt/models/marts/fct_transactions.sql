@@ -19,12 +19,14 @@ select
     merchant_id,
     device_id,
     amount,
+    amount_usd,
+    currency,
     transaction_timestamp,
     transaction_type,
     transaction_location,
-    actual_is_fraud,
     streaming_risk_score,
-    streaming_risk_level
+    streaming_risk_level,
+    signals_triggered
 from transactions
 
 {% if is_incremental() %}

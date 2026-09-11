@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: financial_risk_staging
-    dataset: financial_risk_staging
+    dataset: staging
     tables:
       - name: customers
       - name: merchants
@@ -10,6 +10,6 @@ sources:
       - name: devices
 
   - name: financial_risk_analytics
-    dataset: financial_risk_analytics
+    dataset: analytics
     tables:
       - name: transaction_risk

@@ -8,3 +8,5 @@ python-dotenv>=1.0.0
 pandas>=2.0.0
 Faker>=24.0.0
 apache-airflow>=2.8.0
+dbt-bigquery
+watchdog

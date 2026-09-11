@@ -4,14 +4,14 @@ Runner script for the Streaming Dataflow pipeline.
 Executes the pipeline on Google Cloud Dataflow for continuous streaming processing.
 """
 
-from utils.logger import get_logger
-import logging
 import os
 import subprocess
 import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+from utils.logger import get_logger
 
 log = get_logger("streaming_run_dataflow")
 
@@ -26,6 +26,7 @@ def run():
     temp_location = f"gs://{bucket_prefix}-dataflow-temp/streaming/temp"
     staging_location = f"gs://{bucket_prefix}-dataflow-temp/streaming/staging"
     input_subscription = f"projects/{project_id}/subscriptions/transaction-events-sub"
+    import time
     
     pipeline_script = repo_root / "pipelines" / "streaming" / "pipeline.py"
     
@@ -39,7 +40,9 @@ def run():
         "--setup_file=./setup.py",
         f"--input_subscription={input_subscription}",
         "--dataset=analytics",
-        "--job_name=streaming-risk-engine"
+        f"--service_account_email=dataflow-worker-sa@{project_id}.iam.gserviceaccount.com",
+        "--worker_zone=us-central1-b",
+        f"--job_name=streaming-risk-engine-{int(time.time())}"
     ]
     
     log.info("Submitting streaming pipeline to Google Cloud Dataflow...")

@@ -15,19 +15,19 @@ Run directly:
     python data/generators/generate_devices.py
 """
 
-from utils.logger import get_logger
 import argparse
 import csv
-import logging
 import random
-from typing import Any
 import uuid
 from datetime import UTC, datetime, timedelta
 from ipaddress import IPv4Address
 from pathlib import Path
+from typing import Any
 
 from config import NUM_DEVICES, OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
 from faker import Faker
+
+from utils.logger import get_logger
 
 log = get_logger(__name__)
 

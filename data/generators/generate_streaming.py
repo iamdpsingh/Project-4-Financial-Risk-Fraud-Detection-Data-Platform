@@ -20,10 +20,8 @@ Usage:
     python data/generators/generate_streaming.py --rate 10 --project my-project --pubsub
 """
 
-from utils.logger import get_logger
 import argparse
 import json
-import logging
 import os
 import random
 import sys
@@ -33,6 +31,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from config import OUTPUT_DIR, RANDOM_SEED
+
+from utils.logger import get_logger
 
 log = get_logger(__name__)
 
@@ -109,6 +109,8 @@ def build_event(
         "country": txn_country,
         "city": customer["city"],
         "payment_method": rng.choice(["card", "wallet", "upi"]),
+        "status": "completed",
+        "ip_address": device["ip_address"],
         "customer_country": customer["country"],
         "is_international": str(txn_country != customer["country"]).lower(),
         "emitted_at": now.isoformat(),

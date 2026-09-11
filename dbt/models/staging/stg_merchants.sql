@@ -6,10 +6,12 @@ with source as (
 renamed as (
     select
         merchant_id,
-        name as merchant_name,
-        category as merchant_category,
+        merchant_name,
+        merchant_category,
+        mcc_code,
         country as merchant_country,
-        risk_tier as merchant_risk_tier
+        city as merchant_city,
+        risk_category as merchant_risk_tier
     from source
 )
 select * from renamed

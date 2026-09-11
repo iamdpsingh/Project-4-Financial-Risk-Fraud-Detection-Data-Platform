@@ -6,14 +6,14 @@ to Google Cloud Storage (GCS) where they act as the source for the Dataflow
 batch pipeline.
 """
 
-from utils.logger import get_logger
 import argparse
-import logging
 import os
 import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+from utils.logger import get_logger
 
 log = get_logger("batch_upload")
 

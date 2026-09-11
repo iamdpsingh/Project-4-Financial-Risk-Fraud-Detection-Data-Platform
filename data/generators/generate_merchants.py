@@ -15,10 +15,8 @@ Run directly:
     python data/generators/generate_merchants.py --count 500
 """
 
-from utils.logger import get_logger
 import argparse
 import csv
-import logging
 import random
 import uuid
 from datetime import UTC, datetime, timedelta
@@ -35,6 +33,8 @@ from config import (
     SAMPLE_SIZE,
 )
 from faker import Faker
+
+from utils.logger import get_logger
 
 log = get_logger(__name__)
 

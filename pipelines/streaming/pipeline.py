@@ -6,14 +6,20 @@ context, scores them for fraud risk using the Rule Engine, and writes the
 results to BigQuery.
 """
 
-from utils.logger import get_logger
 import logging
 from pathlib import Path
 
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions, SetupOptions, StandardOptions
 from dotenv import load_dotenv
-from transforms import EnrichTransaction, FormatForBigQuery, ParsePubSubMessage, ScoreFraudRisk
+
+from pipelines.streaming.transforms import (
+    EnrichTransaction,
+    FormatForBigQuery,
+    ParsePubSubMessage,
+    ScoreFraudRisk,
+)
+from utils.logger import get_logger
 
 load_dotenv()
 
@@ -107,10 +113,12 @@ def run_pipeline(argv=None):
             table_spec = f"{project}:{dataset}.transaction_risk"
             dlq_spec = f"{project}:{dataset}.transactions_dlq"
             
-            final_records | "WriteToBQ" >> beam.io.WriteToBigQuery(
+            write_result = final_records | "WriteToBQ" >> beam.io.WriteToBigQuery(
                 table=table_spec,
                 create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
-                write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
+                write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
+                ignore_unknown_columns=True,
+                insert_retry_strategy=beam.io.gcp.bigquery_tools.RetryStrategy.RETRY_ON_TRANSIENT_ERROR
             )
             
             # Format DLQ records
@@ -138,6 +146,17 @@ def run_pipeline(argv=None):
                 scoring_errors 
                 | "FormatScoringDLQ" >> beam.Map(lambda x: format_dlq(x, "SCORING_ERROR"))
                 | "WriteScoringToDLQ" >> beam.io.WriteToBigQuery(
+                    table=dlq_spec,
+                    create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+                    write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
+                )
+            )
+
+            # Write BQ Failed Inserts to DLQ
+            (
+                write_result[beam.io.gcp.bigquery.BigQueryWriteFn.FAILED_ROWS]
+                | "FormatBQErrorDLQ" >> beam.Map(lambda x: format_dlq(x, "BQ_INSERT_ERROR"))
+                | "WriteBQErrorToDLQ" >> beam.io.WriteToBigQuery(
                     table=dlq_spec,
                     create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
                     write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND

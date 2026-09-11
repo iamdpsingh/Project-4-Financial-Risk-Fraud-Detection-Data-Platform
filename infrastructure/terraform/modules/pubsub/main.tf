@@ -9,9 +9,9 @@ resource "google_pubsub_subscription" "events_sub" {
   project = var.project_id
 
   # Retain unacknowledged messages for 7 days
-  message_retention_duration = "604800s" 
-  
+  message_retention_duration = "604800s"
+
   # Prevent message loss during rapid ingestion bursts
-  retain_acked_messages      = false
-  ack_deadline_seconds       = 20
+  retain_acked_messages = false
+  ack_deadline_seconds  = 20
 }

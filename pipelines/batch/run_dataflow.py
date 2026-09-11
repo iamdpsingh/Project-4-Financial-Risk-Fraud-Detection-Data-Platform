@@ -4,14 +4,14 @@ Runner script for the Batch Dataflow pipeline.
 Executes the pipeline on Google Cloud Dataflow instead of the local DirectRunner.
 """
 
-from utils.logger import get_logger
-import logging
 import os
 import subprocess
 import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+from utils.logger import get_logger
 
 log = get_logger("batch_run_dataflow")
 
@@ -27,6 +27,7 @@ def run():
     input_dir = f"gs://{bucket_prefix}-raw-data"
     temp_location = f"gs://{bucket_prefix}-dataflow-temp/batch/temp"
     staging_location = f"gs://{bucket_prefix}-dataflow-temp/batch/staging"
+    import time
     
     pipeline_script = repo_root / "pipelines" / "batch" / "pipeline.py"
     
@@ -40,7 +41,9 @@ def run():
         "--setup_file=./setup.py",
         f"--input_dir={input_dir}",
         "--dataset=staging",
-        "--job_name=batch-ingestion-pipeline",
+        f"--service_account_email=dataflow-worker-sa@{project_id}.iam.gserviceaccount.com",
+        "--worker_zone=us-central1-b",
+        f"--job_name=batch-ingestion-pipeline-{int(time.time())}",
         "--wait_until_finish"
     ]
     

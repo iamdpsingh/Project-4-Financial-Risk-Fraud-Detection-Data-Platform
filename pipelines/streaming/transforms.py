@@ -3,7 +3,6 @@ Beam DoFn classes for the streaming pipeline.
 Handles parsing Pub/Sub messages, evaluating fraud rules, and scoring risk.
 """
 
-from utils.logger import get_logger
 import json
 import logging
 from typing import Any
@@ -12,7 +11,7 @@ import apache_beam as beam
 
 # We add the fraud module to the path when running locally, or it gets packaged
 # in the actual Dataflow job. For simplicity in the DoFn, we import it inside.
-log = get_logger("streaming_pipeline")
+log = logging.getLogger("streaming_pipeline")
 
 class ParsePubSubMessage(beam.DoFn):
     """Parses a JSON string from Pub/Sub into a Python dictionary."""
@@ -35,19 +34,27 @@ class EnrichTransaction(beam.DoFn):
     """
     def process(self, transaction: dict[str, Any]):
         # Mocking the enrichment for Phase 3 local execution
-        # In Phase 13, this connects to a real feature store.
+        import random
         enriched = transaction.copy()
         
-        # We need these for the rule engine:
-        # customer_avg_30d, txn_count_5m, failure_count_1h, is_new_device
+        # 10% chance this transaction is a coordinated fraud attack
+        is_fraud_attack = random.random() < 0.10
         
-        enriched["customer_avg_30d"] = enriched.get("amount_usd", 100.0) / 2.0  # Mock
-        enriched["txn_count_5m"] = 1  # Mock (unless we implement Beam stateful processing)
-        enriched["failure_count_1h"] = 0  # Mock
+        # If it's a fraud attack, artificially spike the velocity and failure counts
+        enriched["txn_count_5m"] = random.randint(6, 15) if is_fraud_attack else random.randint(1, 2)
+        enriched["failure_count_1h"] = random.randint(3, 8) if is_fraud_attack else 0
         
-        # The generator passes is_international, but we can check device
-        # For simulation, assume device is not new unless specified
-        enriched["is_new_device"] = enriched.get("is_new_device", False)
+        # Make the average 30d amount realistic so high_amount triggers properly
+        actual_amount = enriched.get("amount_usd", 100.0)
+        if is_fraud_attack:
+            # For a fraud attack, the average past amount is very low, making this look like a huge anomaly
+            enriched["customer_avg_30d"] = actual_amount / 10.0
+            enriched["is_new_device"] = True
+            enriched["is_international"] = "true"  # Force geo anomaly to push score over 70
+        else:
+            # Normal transaction: past average is roughly similar to this amount
+            enriched["customer_avg_30d"] = actual_amount * random.uniform(0.8, 1.2)
+            enriched["is_new_device"] = enriched.get("is_new_device", False)
         
         yield enriched
 
@@ -85,9 +92,6 @@ class ScoreFraudRisk(beam.DoFn):
             scored_txn.pop("failure_count_1h", None)
             scored_txn.pop("is_new_device", None)
             
-            # Format signals as a comma-separated string or leave as list if BQ schema supports REPEATED
-            scored_txn["signals_triggered"] = ",".join(scored_txn["signals_triggered"])
-            
             yield scored_txn
             
         except Exception as e:
@@ -97,6 +101,18 @@ class ScoreFraudRisk(beam.DoFn):
 class FormatForBigQuery(beam.DoFn):
     """Prepares the final scored transaction for BigQuery insertion."""
     def process(self, scored_txn: dict[str, Any]):
-        # Depending on the schema, ensure timestamps are correct
-        # and types match.
-        yield scored_txn
+        schema_keys = {
+            "transaction_id", "customer_id", "account_id", "merchant_id", "device_id",
+            "transaction_timestamp", "amount", "currency", "amount_usd", "transaction_type",
+            "country", "city", "payment_method", "status", "ip_address", "is_international",
+            "risk_score", "risk_level", "signals_triggered"
+        }
+        
+        # Format signals as a comma-separated string
+        if isinstance(scored_txn.get("signals_triggered"), list):
+            scored_txn["signals_triggered"] = ",".join(scored_txn["signals_triggered"])
+        
+        # Only keep keys that exist in the BigQuery schema
+        clean_record = {k: v for k, v in scored_txn.items() if k in schema_keys}
+        
+        yield clean_record

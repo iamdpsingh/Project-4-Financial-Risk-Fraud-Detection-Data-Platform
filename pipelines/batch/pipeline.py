@@ -5,13 +5,14 @@ Reads raw CSV files from GCS (or local), validates them, applies basic
 transformations, and loads the data into BigQuery staging tables.
 """
 
-from utils.logger import get_logger
 import logging
 from pathlib import Path
 
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions, SetupOptions
-from transforms import ParseCSVLine, TransformForBigQuery, ValidateRecord
+
+from pipelines.batch.transforms import ParseCSVLine, TransformForBigQuery, ValidateRecord
+from utils.logger import get_logger
 
 # Configure logging to write to both console and a file in the logs/ directory
 log_dir = Path("logs")
@@ -58,7 +59,7 @@ def run_pipeline(argv=None):
     custom_options = pipeline_options.view_as(IngestionPipelineOptions)
     input_dir = custom_options.input_dir.rstrip("/")
     dataset = custom_options.dataset
-    project = custom_options.project_id
+    project = custom_options.project_id or pipeline_options.view_as(beam.options.pipeline_options.GoogleCloudOptions).project
     output_local = custom_options.output_local
 
     with beam.Pipeline(options=pipeline_options) as p:
@@ -96,6 +97,7 @@ def run_pipeline(argv=None):
                 table_spec = f"{project}:{dataset}.{table}"
                 transformed | f"WriteBQ_{table}" >> beam.io.WriteToBigQuery(
                     table=table_spec,
+                    schema='SCHEMA_AUTODETECT',
                     create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
                     write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
                 )
@@ -112,9 +114,11 @@ def run_pipeline(argv=None):
                 error_table_spec = f"{project}:{dataset}.data_quality_errors"
                 invalid_records | f"WriteErrorsBQ_{table}" >> beam.io.WriteToBigQuery(
                     table=error_table_spec,
+                    schema='SCHEMA_AUTODETECT',
                     create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
                     write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND
                 )
+
 
 if __name__ == "__main__":
     get_logger(__name__).setLevel(logging.INFO)

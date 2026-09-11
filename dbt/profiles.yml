@@ -1,0 +1,12 @@
+financial_risk:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: financial-data-platform-508216
+      dataset: analytics
+      threads: 4
+      timeout_seconds: 300
+      location: us-central1
+      priority: interactive

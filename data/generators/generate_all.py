@@ -16,13 +16,13 @@ Usage:
     python data/generators/generate_all.py --customers 1000 --transactions 50000
 """
 
-from utils.logger import get_logger
 import argparse
-import logging
 import os
 import sys
 import time
 from pathlib import Path
+
+from utils.logger import get_logger
 
 # Make sure the generators directory is in the path so we can import config.
 sys.path.insert(0, str(Path(__file__).parent))

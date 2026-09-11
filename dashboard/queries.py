@@ -7,8 +7,8 @@ def get_high_level_metrics(project_id: str, dataset: str) -> str:
     return f"""
     SELECT
         COUNT(*) as total_transactions,
-        SUM(CASE WHEN risk_level = 'HIGH' OR is_fraud = TRUE THEN 1 ELSE 0 END) as fraud_count,
-        SUM(CASE WHEN risk_level = 'HIGH' OR is_fraud = TRUE THEN amount_usd ELSE 0 END) as fraud_amount_usd
+        SUM(CASE WHEN risk_level = 'HIGH' THEN 1 ELSE 0 END) as fraud_count,
+        SUM(CASE WHEN risk_level = 'HIGH' THEN amount_usd ELSE 0 END) as fraud_amount_usd
     FROM `{project_id}.{dataset}.transaction_risk`
     WHERE DATE(transaction_timestamp) = CURRENT_DATE()
     """
@@ -27,7 +27,7 @@ def get_recent_anomalies(project_id: str, dataset: str, limit: int = 50) -> str:
         risk_score,
         signals_triggered
     FROM `{project_id}.{dataset}.transaction_risk`
-    WHERE risk_level = 'HIGH' OR is_fraud = TRUE
+    WHERE risk_level = 'HIGH'
     ORDER BY transaction_timestamp DESC
     LIMIT {limit}
     """
@@ -49,7 +49,7 @@ def get_hourly_trend(project_id: str, dataset: str) -> str:
     SELECT
         EXTRACT(HOUR FROM transaction_timestamp) as hour,
         COUNT(*) as volume,
-        SUM(CASE WHEN risk_level = 'HIGH' OR is_fraud = TRUE THEN 1 ELSE 0 END) as fraud_volume
+        SUM(CASE WHEN risk_level = 'HIGH' THEN 1 ELSE 0 END) as fraud_volume
     FROM `{project_id}.{dataset}.transaction_risk`
     WHERE DATE(transaction_timestamp) = CURRENT_DATE()
     GROUP BY 1

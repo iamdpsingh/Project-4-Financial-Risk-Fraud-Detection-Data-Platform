@@ -6,13 +6,11 @@ with customers as (
 
 select
     customer_id,
-    first_name,
-    last_name,
+    full_name,
     email,
     city,
     country,
-    initial_risk_score,
-    is_active,
+    customer_segment,
     -- Add computed age
     DATE_DIFF(CURRENT_DATE(), CAST(date_of_birth AS DATE), YEAR) as age
 from customers

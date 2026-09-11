@@ -22,10 +22,8 @@ Run directly:
     python data/generators/generate_transactions.py --count 100000
 """
 
-from utils.logger import get_logger
 import argparse
 import csv
-import logging
 import random
 import uuid
 from datetime import UTC, datetime, timedelta
@@ -42,6 +40,8 @@ from config import (
     SAMPLE_DIR,
     SAMPLE_SIZE,
 )
+
+from utils.logger import get_logger
 
 log = get_logger(__name__)
 
@@ -323,7 +323,7 @@ def generate_transactions(
 
     # Inject velocity bursts.
     for _ in range(n_velocity):
-        from typing import cast, Any
+        from typing import Any
         customer = rng.choice(customers)
         accs: list[dict[str, Any]] = customer_accounts.get(customer["customer_id"], []) # type: ignore
         devs: list[dict[str, Any]] = customer_devices.get(customer["customer_id"], []) # type: ignore
@@ -334,7 +334,7 @@ def generate_transactions(
 
     # Inject geo anomalies.
     for _ in range(n_geo):
-        from typing import cast, Any
+        from typing import Any
         customer = rng.choice(customers)
         accs: list[dict[str, Any]] = customer_accounts.get(customer["customer_id"], []) # type: ignore
         devs: list[dict[str, Any]] = customer_devices.get(customer["customer_id"], []) # type: ignore

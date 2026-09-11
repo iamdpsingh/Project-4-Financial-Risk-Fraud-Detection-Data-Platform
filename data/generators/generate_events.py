@@ -20,16 +20,16 @@ Run directly:
     python data/generators/generate_events.py
 """
 
-from utils.logger import get_logger
 import argparse
 import csv
-import logging
 import random
 import uuid
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from config import OUTPUT_DIR, RANDOM_SEED, SAMPLE_DIR, SAMPLE_SIZE
+
+from utils.logger import get_logger
 
 log = get_logger(__name__)
 
